@@ -11,7 +11,7 @@ const path = require("path")
  */
 module.exports = defineConfig({
   server: {
-    allowedHosts: ["api.zahan.net", "www.api.zahan.net"],
+    allowedHosts: ["api.zahan.net", "www.api.zahan.net", "api.al-aria.com", "www.api.al-aria.com"],
   },
   plugins: [
     {
