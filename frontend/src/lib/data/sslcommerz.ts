@@ -187,7 +187,7 @@ export async function completeOrderAfterSSLCommerz(cartId: string) {
  */
 export async function getCartIdFromSession(sessionId: string) {
     try {
-        const backendUrl = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000"
+        const backendUrl = process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9001"
         const publishableKey = process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY
 
         const headers: Record<string, string> = {
