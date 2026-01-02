@@ -96,7 +96,7 @@ export default function ShippingInfoPage() {
                             </table>
                         </div>
 
-                        <div className="mt-6 bg-blue-50 border border-blue-200 p-4 rounded-lg">
+                        <div className="mt-6 bg-blue-50 border border-blue-200 p-4 rounded-sm">
                             <p className="font-semibold text-blue-900 mb-2">🎉 Free Shipping Offer</p>
                             <p className="text-blue-800">
                                 Enjoy <strong>FREE shipping</strong> on orders above <strong>৳2,000</strong> anywhere in Bangladesh!

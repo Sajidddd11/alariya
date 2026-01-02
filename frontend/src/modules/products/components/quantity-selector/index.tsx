@@ -35,7 +35,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   }
 
   return (
-    <div className="  bg-slate-50  py-1 flex items-center gap-2">
+    <div className="  bg-none  py-1 border border-black flex items-center gap-2">
       <div className="w-full flex items-center justify-around">
         <button
           onClick={handleDecrease}

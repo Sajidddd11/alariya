@@ -57,7 +57,7 @@ function SeeAllCard({ categoryHandle }: { categoryHandle: string }) {
   return (
     <LocalizedClientLink
       href={`/categories/${categoryHandle}`}
-      className="group rounded-sm relative overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center min-h-full"
+      className="group rounded-none relative overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center min-h-full"
       style={{
       }}
     >

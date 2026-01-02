@@ -110,7 +110,7 @@ const VerifyOTP = ({ phone, verifyOTP, onSuccess, onResend, onCancel }: Props) =
                             value={digit}
                             onChange={(e) => handleChange(index, e.target.value)}
                             onKeyDown={(e) => handleKeyDown(index, e)}
-                            className="w-12 h-12 text-center text-xl border border-ui-border-base rounded-md focus:outline-none focus:ring-2 focus:ring-ui-fg-base"
+                            className="w-12 h-12 text-center text-xl border border-ui-border-base rounded-none focus:outline-none focus:ring-2 focus:ring-ui-fg-base"
                             data-testid={`otp-input-${index}`}
                         />
                     ))}

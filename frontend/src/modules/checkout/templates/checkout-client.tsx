@@ -35,7 +35,7 @@ export default function CheckoutClient({ cart, customer }: CheckoutClientProps) 
                     onDistrictChange={setSelectedDistrict}
                 />
             </div>
-            <div className="bg-white rounded-lg border border-slate-200 p-5 small:p-6 h-fit sticky top-20 small:top-24">
+            <div className="bg-white rounded-none border border-slate-200 p-5 small:p-6 h-fit sticky top-20 small:top-24">
                 <CheckoutSummary cart={displayCart} shippingOverride={selectedShippingCost} />
             </div>
         </div>

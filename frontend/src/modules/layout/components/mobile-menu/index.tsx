@@ -15,7 +15,6 @@ export default function MobileMenu({
 }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
-  const topLevelCategories = categories.filter((cat) => !cat.parent_category)
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -70,31 +69,64 @@ export default function MobileMenu({
         <div className={`absolute top-full left-0 right-0 bg-white border-b border-slate-200 z-50 max-h-[calc(100vh-64px)] overflow-y-auto transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] will-change-transform ${isOpen ? "translate-x-0 opacity-100 shadow-2xl" : "-translate-x-full opacity-0 pointer-events-none shadow-none"}`}>
           <div className="p-4 space-y-2">
             <LocalizedClientLink
-              href="/store"
+              href="/"
               className={`block px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-lg font-medium transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
               style={{
                 transitionDelay: isOpen ? "50ms" : "0ms",
               }}
               onClick={() => setIsOpen(false)}
             >
-              All Products
+              Home
+            </LocalizedClientLink>
+
+            <LocalizedClientLink
+              href="/about"
+              className={`block px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-lg font-medium transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
+              style={{
+                transitionDelay: isOpen ? "75ms" : "0ms",
+              }}
+              onClick={() => setIsOpen(false)}
+            >
+              About Us
+            </LocalizedClientLink>
+
+            <LocalizedClientLink
+              href="/contact"
+              className={`block px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-lg font-medium transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
+              style={{
+                transitionDelay: isOpen ? "100ms" : "0ms",
+              }}
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </LocalizedClientLink>
+
+            <LocalizedClientLink
+              href="/store"
+              className={`block px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-lg font-medium transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
+              style={{
+                transitionDelay: isOpen ? "125ms" : "0ms",
+              }}
+              onClick={() => setIsOpen(false)}
+            >
+              Collections
             </LocalizedClientLink>
 
             <div className="border-t border-slate-100 pt-2">
               <h3 className={`px-4 py-2 text-sm font-semibold text-slate-900 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
                 style={{
-                  transitionDelay: isOpen ? "100ms" : "0ms",
+                  transitionDelay: isOpen ? "150ms" : "0ms",
                 }}
               >
-                Categories
+                Products
               </h3>
-              {topLevelCategories.map((category, index) => (
+              {categories.map((category, index) => (
                 <LocalizedClientLink
                   key={category.id}
-                  href={`/categories/${category.handle}`}
+                  href={`/store?category=${category.id}`}
                   className={`block px-6 py-2 text-slate-700 hover:bg-slate-50 text-sm transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
                   style={{
-                    transitionDelay: isOpen ? `${150 + index * 25}ms` : "0ms",
+                    transitionDelay: isOpen ? `${175 + index * 25}ms` : "0ms",
                   }}
                   onClick={() => setIsOpen(false)}
                 >
@@ -106,9 +138,9 @@ export default function MobileMenu({
             <div className="border-t border-slate-100 pt-2">
               <LocalizedClientLink
                 href="/account"
-                className={`block px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-lg font-medium transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
+                className={`block px-4 py-3 text-slate-700 hover:bg-slate-50 rounded-none font-medium transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
                 style={{
-                  transitionDelay: isOpen ? `${400 + topLevelCategories.length * 25}ms` : "0ms",
+                  transitionDelay: isOpen ? `${425 + categories.length * 25}ms` : "0ms",
                 }}
                 onClick={() => setIsOpen(false)}
               >
@@ -120,7 +152,7 @@ export default function MobileMenu({
               <div className="border-t border-slate-100 pt-2">
                 <h3 className={`px-4 py-2 text-sm font-semibold text-slate-900 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
                   style={{
-                    transitionDelay: isOpen ? `${450 + topLevelCategories.length * 25}ms` : "0ms",
+                    transitionDelay: isOpen ? `${475 + categories.length * 25}ms` : "0ms",
                   }}
                 >
                   Region
@@ -130,7 +162,7 @@ export default function MobileMenu({
                     key={region.id}
                     className={`px-4 py-2 text-slate-700 text-sm transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
                     style={{
-                      transitionDelay: isOpen ? `${500 + topLevelCategories.length * 25 + index * 25}ms` : "0ms",
+                      transitionDelay: isOpen ? `${525 + categories.length * 25 + index * 25}ms` : "0ms",
                     }}
                   >
                     {region.name}

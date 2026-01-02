@@ -46,7 +46,7 @@ const Addresses = ({
           level="h2"
           className="flex flex-row text-3xl-regular gap-x-2 items-baseline"
         >
-          Shipping Address
+          SHIPPING ADDRESS
           {!isOpen && <CheckCircleSolid />}
         </Heading>
         {!isOpen && cart?.shipping_address && (
@@ -99,7 +99,7 @@ const Addresses = ({
                   data-testid="shipping-address-summary"
                 >
                   <Text className="txt-medium-plus text-ui-fg-base mb-1">
-                    Shipping Address
+                    SHIPPING ADDRESS
                   </Text>
                   <Text className="txt-medium text-ui-fg-subtle">
                     {cart.shipping_address.first_name}{" "}

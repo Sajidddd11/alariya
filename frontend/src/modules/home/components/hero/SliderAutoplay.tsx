@@ -18,7 +18,7 @@ const SliderAutoplay = ({
   }, [images.length, interval])
 
   return (
-    <div className="relative w-full h-full overflow-hidden rounded-md">
+    <div className="relative w-full h-full overflow-hidden rounded-none">
       <div
         className="flex h-full transition-transform duration-500"
         style={{ transform: `translateX(-${index * 100}%)` }}

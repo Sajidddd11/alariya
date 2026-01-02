@@ -58,11 +58,39 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
   }
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="grid grid-cols-10 gap-3">
+      {/* Thumbnail Gallery - Horizontal Scroll */}
+      {images.length > 1 && (
+        <div className=" col-span-2 flex flex-col gap-2 overflow-x-auto pb-1">
+          {images.map((image, index) => (
+            <button
+              key={image.id}
+              onClick={() => setSelectedImageIndex(index)}
+              className={`relative flex-shrink-0 rounded-none overflow-hidden border-2 transition-all ${selectedImageIndex === index
+                ? "border-slate-900 shadow-lg"
+                : "border-slate-200 hover:border-slate-400"
+                }`}
+              aria-label={`View image ${index + 1}`}
+              style={{
+                aspectRatio: "1 / 1",
+                width: "100%",
+              }}
+            >
+              <Image
+                src={image.url}
+                alt={`Thumbnail ${index + 1}`}
+                fill
+                className="object-cover w-full"
+              />
+            </button>
+          ))}
+        </div>
+      )}
+
       {/* Main Image with Zoom */}
       <div
         ref={mainImageRef}
-        className="relative overflow-hidden bg-slate-100 cursor-zoom-in group mx-auto"
+        className="col-span-8 relative overflow-hidden bg-slate-100 cursor-zoom-in group mx-auto"
         style={{
           aspectRatio: "1 / 1",
           width: "100%",
@@ -99,42 +127,18 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
         )}
 
         {/* Image Counter - Mobile */}
-        <div className="small:hidden absolute bottom-4 right-4 bg-black/70 text-white px-3 py-1.5 rounded-lg text-xs font-bold">
+        <div className="small:hidden absolute bottom-1 right-1 bg-none border border-slate-900 text-slate-900 px-3 py-1 rounded-none text-xs font-bold">
           {selectedImageIndex + 1}/{images.length}
         </div>
 
         {/* Badge */}
         {images.length > 1 && (
-          <div className="absolute bottom-4 left-4 small:hidden bg-black/70 text-white px-3 py-1.5 rounded-lg text-xs font-medium">
+          <div className="absolute top-1 left-1 small:hidden bg-none border border-slate-900 text-slate-900 px-3 py-1 rounded-none text-xs font-medium">
             Swipe to explore
           </div>
         )}
       </div>
 
-      {/* Thumbnail Gallery - Horizontal Scroll */}
-      {images.length > 1 && (
-        <div className="flex gap-2 overflow-x-auto pb-1">
-          {images.map((image, index) => (
-            <button
-              key={image.id}
-              onClick={() => setSelectedImageIndex(index)}
-              className={`relative flex-shrink-0 w-14 h-14 small:w-16 small:h-16 rounded-lg overflow-hidden border-2 transition-all ${selectedImageIndex === index
-                ? "border-slate-900 shadow-lg"
-                : "border-slate-200 hover:border-slate-400"
-                }`}
-              aria-label={`View image ${index + 1}`}
-            >
-              <Image
-                src={image.url}
-                alt={`Thumbnail ${index + 1}`}
-                fill
-                sizes="64px"
-                className="object-cover"
-              />
-            </button>
-          ))}
-        </div>
-      )}
     </div>
   )
 }

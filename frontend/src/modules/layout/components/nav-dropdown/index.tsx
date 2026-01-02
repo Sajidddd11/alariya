@@ -39,19 +39,13 @@ export default function NavDropdown({ categories }: NavDropdownProps) {
         className="text-slate-700 hover:text-slate-900 font-medium transition-colors flex items-center gap-1 py-4"
       >
         Categories
-        <svg
-          className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""}`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+        <span
+          className={`text-lg font-bold transition-transform ${
+            isOpen ? "-rotate-90" : "rotate-90"
+          } inline-block`}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
+          &gt;
+        </span>
       </button>
 
       {/* Dropdown Menu */}

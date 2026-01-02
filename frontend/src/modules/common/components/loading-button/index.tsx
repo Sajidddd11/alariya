@@ -35,7 +35,7 @@ export default function LoadingButton({
       size={size}
       disabled={isDisabled}
       className={clx(
-        "relative",
+        "relative btn-unified",
         enhancedLargePrimary && [
           "w-full",
           "py-4",

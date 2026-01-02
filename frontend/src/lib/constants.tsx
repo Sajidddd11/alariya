@@ -31,7 +31,7 @@ export const paymentInfoMap: Record<
     icon: <PayPal />,
   },
   pp_system_default: {
-    title: "Cash on Delivery",
+    title: "COD",
     icon: (
       <img
         src="/3796142.png"

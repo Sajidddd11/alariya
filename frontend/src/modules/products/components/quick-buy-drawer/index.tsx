@@ -109,12 +109,12 @@ export default function QuickBuyDrawer({
                 {/* Action Buttons */}
                 <div className="px-4 py-3 border-t border-gray-200 bg-gray-50">
                     <div className="flex gap-2">
-                        {/* Add to Cart Button */}
+                        {/* ADD TO CART Button */}
                         <button
                             onClick={onAddToCart}
                             disabled={!canPurchase}
-                            className={`flex-1 py-2 px-2 font-semibold text-xs whitespace-nowrap transition-all flex items-center justify-center gap-2 ${canPurchase
-                                ? "bg-slate-900 text-white hover:bg-slate-800"
+                            className={`flex-1 py-2 px-2 font-semibold text-xs whitespace-nowrap flex items-center justify-center gap-2 ${canPurchase
+                                ? "bg-slate-900 text-white btn-hover-animation-dark"
                                 : "bg-slate-200 text-slate-500 cursor-not-allowed"
                                 }`}
                         >
@@ -128,7 +128,7 @@ export default function QuickBuyDrawer({
                             ) : !inStock || !isValidVariant ? (
                                 "Out of Stock"
                             ) : (
-                                "Add to Cart"
+                                "ADD TO CART"
                             )}
                         </button>
 
@@ -136,8 +136,8 @@ export default function QuickBuyDrawer({
                         <button
                             onClick={onBuyNow}
                             disabled={!canPurchase}
-                            className={`flex-1 py-2 px-2 font-semibold text-xs whitespace-nowrap transition-all border ${canPurchase
-                                ? "bg-white border-slate-900 text-slate-900 hover:bg-slate-50"
+                            className={`flex-1 py-2 px-2 font-semibold text-xs whitespace-nowrap border ${canPurchase
+                                ? "bg-white border-slate-900 text-slate-900 btn-hover-animation-light"
                                 : "bg-slate-100 border-slate-300 text-slate-400 cursor-not-allowed"
                                 }`}
                         >

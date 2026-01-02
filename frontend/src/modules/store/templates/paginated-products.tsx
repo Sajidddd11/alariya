@@ -1,5 +1,6 @@
 import { listProductsWithSort } from "@lib/data/products"
 import { getRegion } from "@lib/data/regions"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
@@ -99,12 +100,12 @@ export default async function PaginatedProducts({
               ? "We couldn't find any products matching your search. Try adjusting your search terms or browsing by category."
               : "There are no products available in this selection. Please check back soon or explore other categories."}
           </p>
-          <a
+          <LocalizedClientLink
             href="/store"
-            className="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
+            className="btn-unified inline-block px-6 small:px-8 py-2 small:py-3 text-grey-90 font-semibold relative z-10"
           >
-            Browse All Products
-          </a>
+            <span className="relative z-10">Browse All Products</span>
+          </LocalizedClientLink>
         </div>
       </div>
     )
@@ -113,7 +114,7 @@ export default async function PaginatedProducts({
   return (
     <>
       <ul
-        className="columns-2 small:grid small:grid-cols-3 medium:grid-cols-5 gap-2 small:gap-3 medium:gap-3"
+        className="columns-2 small:grid small:grid-cols-4 gap-2 small:gap-3 medium:gap-3"
         data-testid="products-list"
       >
         {products.map((p) => {

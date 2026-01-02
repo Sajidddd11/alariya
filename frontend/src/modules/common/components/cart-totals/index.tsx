@@ -89,7 +89,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals, shippingOverride }) => 
       <div className="flex items-center justify-between text-ui-fg-base mb-2 txt-medium ">
         <span>Total</span>
         <span
-          className=" text-2xl font-bold text-green-600"
+          className=" text-2xl font-bold text-[#339994]"
           data-testid="cart-total"
           data-value={displayTotal}
         >
@@ -98,7 +98,7 @@ const CartTotals: React.FC<CartTotalsProps> = ({ totals, shippingOverride }) => 
       </div>
       <div className="h-px w-full border-b border-grey-20 my-4" />
       <div className="font-medium w-full text-sm text-center">
-        You will get delivery<br /><span className="font-semibold text-lg text-green-500">within {deliveryDays} Days</span> after confirmation
+        You will get delivery<br /><span className="font-semibold text-lg text-[#339994]">within {deliveryDays} Days</span> after confirmation
       </div>
       <div className="h-px w-full border-b border-grey-20 mt-4" />
     </div>

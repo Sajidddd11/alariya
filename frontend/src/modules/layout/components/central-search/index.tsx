@@ -62,12 +62,12 @@ export default function CentralSearch({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search products..."
-            className="w-full px-4 py-2 bg-white rounded-lg border-2 border-slate-200 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors text-sm placeholder-slate-500"
+            className="w-full px-4 py-2 bg-white rounded-none border border-slate-200 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors text-sm placeholder-slate-500"
             aria-label="Search products"
           />
           <button
             type="submit"
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 text-slate-400 hover:text-blue-600 active:text-blue-700 transition-colors duration-200 hover:bg-blue-50 rounded-md"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 text-slate-400 hover:text-blue-600 active:text-blue-700 transition-colors duration-200 hover:bg-blue-50 rounded-none"
             aria-label="Search"
           >
             <svg
@@ -88,10 +88,10 @@ export default function CentralSearch({
       </div>
 
       {/* Right Section: All Products Button */}
-      <LocalizedClientLink
+      {/* <LocalizedClientLink
         href="/store"
         className="px-3 py-2 hidden small:inline-flex items-center gap-2 bg-black text-white rounded-lg hover:bg-gray-800 active:bg-gray-900 transition-colors text-xs small:text-sm font-medium border-2 border-black whitespace-nowrap flex-shrink-0"
-        aria-label="View all products"
+        aria-label="VIEW ALL PRODUCTS"
       >
         <video
           src="/icon.webm"
@@ -102,7 +102,7 @@ export default function CentralSearch({
           className="w-4 h-4 flex-shrink-0"
         />
         <span>Exclusive Collections</span>
-      </LocalizedClientLink>
+      </LocalizedClientLink> */}
     </div>
   )
 }

@@ -29,14 +29,14 @@ export default async function Checkout({
     <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
       <div className="content-container py-6 small:py-12">
         <h1 className="text-2xl small:text-4xl font-bold text-slate-900 mb-6 small:mb-8">
-          Checkout
+          CHECKOUT
         </h1>
         {isReviewStep ? (
           <div className="flex flex-col-reverse small:grid small:grid-cols-2 gap-6 small:gap-8">
             <div className="">
               <Review cart={cart} />
             </div>
-            <div className="bg-white rounded-lg border border-slate-200 p-5 small:p-6 h-fit small:sticky top-20 small:top-24">
+            <div className="bg-white rounded-none border border-slate-200 p-5 small:p-6 h-fit small:sticky top-20 small:top-24">
               <CheckoutSummary cart={cart} showDiscountCode={false} />
             </div>
           </div>

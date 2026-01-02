@@ -59,27 +59,31 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
 
   return (
     <div className="w-full bg-white flex flex-col">
-      <Heading className="txt-medium text-xl mb-2">Coupon Code</Heading>
+      <Heading className="txt-medium text-xl mb-2">COUPON CODE</Heading>
 
       <div className="txt-medium">
         {!hasAppliedCoupons ? (
-          <form action={(a) => addPromotionCode(a)} className="w-full">
+          <form action={(a) => addPromotionCode(a)} className="w-full ">
             <Label className="flex gap-x-1 my-2 items-center">
-              <div className="flex w-full gap-x-2">
-                <Input
-                  className="size-full"
-                  id="promotion-input"
-                  name="code"
-                  type="text"
-                  placeholder="Enter coupon code"
-                  autoFocus={false}
-                  data-testid="discount-input"
-                />
+              <div className="w-full grid grid-cols-5 gap-2">
+                <div className="w-full col-span-3">
+                  <Input
+                    className="w-full rounded-none"
+                    style={{ height: "44px" }}
+                    id="promotion-input"
+                    name="code"
+                    type="text"
+                    placeholder="Enter coupon code"
+                    autoFocus={false}
+                    data-testid="discount-input"
+                  />
+                </div>
                 <SubmitButton
                   variant="secondary"
                   data-testid="discount-apply-button"
+                  className="rounded-none col-span-2 wave-btn w-full btn-hover-animation-light"
                 >
-                  Apply
+                  <span className="relative z-10">Apply</span>
                 </SubmitButton>
               </div>
 
@@ -96,12 +100,13 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                 return (
                   <div
                     key={promotion.id}
-                    className="flex items-center justify-between w-full max-w-full p-3 bg-green-50 rounded-lg border border-green-200"
+                    className="flex items-center justify-between w-full max-w-full p-3 bg-green-50 rounded-none border border-green-200"
                     data-testid="discount-row"
                   >
                     <Text className="flex gap-x-1 items-baseline txt-small-plus w-4/5 pr-1">
                       <span className="truncate" data-testid="discount-code">
                         <Badge
+                          className="rounded-sm"
                           color={promotion.is_automatic ? "green" : "grey"}
                           size="small"
                         >

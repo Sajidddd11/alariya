@@ -6,7 +6,7 @@ import LoadingButton from "@modules/common/components/loading-button"
 
 export function SubmitButton({
   children,
-  variant = "primary",
+  variant = "secondary",
   className,
   "data-testid": dataTestId,
 }: {
@@ -19,8 +19,8 @@ export function SubmitButton({
 
   return (
     <LoadingButton
-      size="large"
-      className={className}
+      size="small"
+      className="rounded-none w-full py-2 col-span-2"
       type="submit"
       isLoading={pending}
       variant={variant || "primary"}

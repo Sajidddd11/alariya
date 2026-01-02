@@ -20,7 +20,7 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
           data-testid="shipping-address-summary"
         >
           <Text className="txt-medium-plus font-semibold text-ui-fg-base mb-1">
-            Shipping Address
+            SHIPPING ADDRESS
           </Text>
           <Text className="txt-medium text-ui-fg-subtle">
             {order.shipping_address?.first_name}{" "}

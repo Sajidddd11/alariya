@@ -34,12 +34,12 @@ async function getRegionMap(cacheId: string) {
       },
       cache: "force-cache",
     }).then(async (response) => {
-      const json = await response.json()
-
       if (!response.ok) {
-        throw new Error(json.message)
+        const json = await response.json()
+        throw new Error(json.message || `HTTP ${response.status}: ${response.statusText}`)
       }
 
+      const json = await response.json()
       return json
     })
 

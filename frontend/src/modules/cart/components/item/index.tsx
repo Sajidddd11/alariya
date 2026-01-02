@@ -47,7 +47,7 @@ const Item = ({ item, type = "full", currencyCode, renderMode = "desktop" }: Ite
 
   if (renderMode === "mobile") {
     return (
-      <div className="w-full border border-ui-border-base rounded-lg p-4 mb-4 bg-ui-bg-base">
+      <div className="w-full border border-ui-border-base rounded-none p-4 mb-4 bg-ui-bg-base">
         <div className="flex gap-3">
           <LocalizedClientLink
             href={`/products/${item.product_handle}`}

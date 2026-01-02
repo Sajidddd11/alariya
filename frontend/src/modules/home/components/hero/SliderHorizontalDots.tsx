@@ -14,7 +14,7 @@ const SliderHorizontalDots = ({ images }: { images: string[] }) => {
   }
 
   return (
-    <div className="relative w-full min-h-[250px] h-full overflow-hidden rounded-md">
+    <div className="relative w-full min-h-[250px] h-full overflow-hidden rounded-none">
       {/* Left Arrow Button */}
       <button
         onClick={prevSlide}

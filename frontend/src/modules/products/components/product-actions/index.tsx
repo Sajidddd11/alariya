@@ -98,17 +98,17 @@ export default function ProductActions({
 
   // check if the selected variant is in stock
   const inStock = useMemo(() => {
-    // If we don't manage inventory, we can always add to cart
+    // If we don't manage inventory, we can always ADD TO CART
     if (selectedVariant && !selectedVariant.manage_inventory) {
       return true
     }
 
-    // If we allow back orders on the variant, we can add to cart
+    // If we allow back orders on the variant, we can ADD TO CART
     if (selectedVariant?.allow_backorder) {
       return true
     }
 
-    // If there is inventory available, we can add to cart
+    // If there is inventory available, we can ADD TO CART
     if (
       selectedVariant?.manage_inventory &&
       (selectedVariant?.inventory_quantity || 0) > 0
@@ -116,7 +116,7 @@ export default function ProductActions({
       return true
     }
 
-    // Otherwise, we can't add to cart
+    // Otherwise, we can't ADD TO CART
     return false
   }, [selectedVariant])
 
@@ -229,7 +229,7 @@ export default function ProductActions({
             {selectedVariant && (
               <div className="text-sm">
                 {inStock ? (
-                  <p className="text-green-600 font-medium flex items-center gap-2">
+                  <p className="text-[#339994] font-medium flex items-center gap-2">
                     <span>✓</span>
                     {selectedVariant.manage_inventory
                       ? `${selectedVariant.inventory_quantity || 0} in stock`
@@ -243,23 +243,24 @@ export default function ProductActions({
           </div>
         </div>
 
-        {/* Quantity selector , add to cart, buy now  */}
+        {/* Quantity selector , ADD TO CART, buy now  */}
         <div className="flex flex-col gap-3">
-          <div className="w-[100px]">
-            {/* Quantity Selector */}
-            {inStock && selectedVariant && (
+
+          {/* Quantity Selector */}
+          {inStock && selectedVariant && (
+            <div className="w-[100px]">
               <QuantitySelector
                 quantity={quantity}
                 onQuantityChange={setQuantity}
                 maxQuantity={selectedVariant.inventory_quantity || 999}
                 disabled={!!disabled || isAdding}
               />
-            )}
-          </div>
+            </div>
+          )}
           <div className="w-full h-full">
             {/* Action Buttons */}
-            <div className="flex gap-1 xsmall:gap-2 h-full">
-              {/* Add to Cart Button */}
+            <div className="flex flex-col small:flex-row gap-1 xsmall:gap-2 h-full">
+              {/* ADD TO CART Button */}
               <Button
                 onClick={handleAddToCart}
                 disabled={
@@ -270,15 +271,19 @@ export default function ProductActions({
                   !isValidVariant
                 }
                 variant="primary"
-                className="w-full rounded-none text-sm xsmall:text-base font-semibold"
+                className="w-full rounded-none text-sm xsmall:text-base py-3 btn-unified-b"
                 isLoading={isAdding}
                 data-testid="add-product-button"
               >
-                {!selectedVariant
-                  ? "Select variant"
-                  : !inStock || !isValidVariant
-                    ? "Out of stock"
-                    : "Add to Cart"}
+                <span className="relative z-10">
+                  {
+                    !selectedVariant
+                      ? "SELECT VARIANT"
+                      : !inStock || !isValidVariant
+                        ? "OUT OF STOCK"
+                        : "ADD TO CART"
+                  }
+                </span>
               </Button>
 
               {/* Buy Now Button */}
@@ -292,10 +297,12 @@ export default function ProductActions({
                   !isValidVariant
                 }
                 variant="secondary"
-                className="w-full rounded-none text-base font-semibold border-slate-300"
+                className="w-full bg-white rounded-none text-base font-semibold btn-unified"
                 data-testid="buy-now-button"
               >
-                Buy Now
+                <span className="relative z-10">
+                  BUY NOW
+                </span>
               </Button>
             </div>
           </div>

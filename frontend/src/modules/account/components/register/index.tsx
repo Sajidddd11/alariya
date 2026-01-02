@@ -21,11 +21,11 @@ const Register = ({ setCurrentView }: Props) => {
       data-testid="register-page"
     >
       <h1 className="text-large-semi uppercase mb-6">
-        Become a ZAHAN Store Member
+        Become a Al-Aria Store Member
       </h1>
       <p className="text-center text-base-regular text-ui-fg-base mb-4">
-        Create your ZAHAN Store Member profile, and get access to an enhanced
-        shopping experience.
+        Create your Al-Aria Store Member profile, and get access to an enhanced
+        perfume experience.
       </p>
       <form className="w-full flex flex-col" action={formAction}>
         <div className="flex flex-col w-full gap-y-2">
@@ -85,8 +85,8 @@ const Register = ({ setCurrentView }: Props) => {
           </LocalizedClientLink>
           .
         </span>
-        <SubmitButton className="w-full mt-6" data-testid="register-button">
-          Join
+        <SubmitButton className="btn-unified border-none w-full inline-block px-4 py-2 text-grey-90 font-semibold text-base text-center relative z-10 rounded-none mt-3" data-testid="register-button">
+          <span className="relative z-10">Join</span>
         </SubmitButton>
       </form>
       <span className="text-center text-ui-fg-base text-small-regular mt-6">
@@ -95,7 +95,7 @@ const Register = ({ setCurrentView }: Props) => {
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
           className="underline"
         >
-          Sign in
+          SIGN IN
         </button>
         .
       </span>

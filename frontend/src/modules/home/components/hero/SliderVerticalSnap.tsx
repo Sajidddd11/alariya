@@ -2,7 +2,7 @@
 
 const SliderVerticalSnap = ({ images }: { images: string[] }) => {
   return (
-    <div className="h-full w-full overflow-y-scroll snap-y snap-mandatory rounded-md">
+    <div className="h-full w-full overflow-y-scroll snap-y snap-mandatory rounded-none">
       {images.map((img, i) => (
         <div key={i} className="h-full w-full snap-start">
           <img

@@ -19,7 +19,7 @@ const Login = ({ setCurrentView }: Props) => {
     >
       <h1 className="text-large-semi uppercase mb-6">Welcome back</h1>
       <p className="text-center text-base-regular text-ui-fg-base mb-8">
-        Sign in to access an enhanced shopping experience.
+        Sign in to access an enhanced perfume experience.
       </p>
       <form className="w-full" action={formAction}>
         <div className="flex flex-col w-full gap-y-2">
@@ -42,8 +42,8 @@ const Login = ({ setCurrentView }: Props) => {
           />
         </div>
         <ErrorMessage error={message} data-testid="login-error-message" />
-        <SubmitButton data-testid="sign-in-button" className="w-full mt-6">
-          Sign in
+        <SubmitButton data-testid="sign-in-button" className="btn-unified border-none w-full inline-block px-4 py-2 text-grey-90 font-semibold text-base text-center relative z-10 rounded-none mt-3">
+          <span className="relative z-10">SIGN IN</span>
         </SubmitButton>
       </form>
       <span className="text-center text-ui-fg-base text-small-regular mt-4">

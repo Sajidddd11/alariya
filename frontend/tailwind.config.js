@@ -34,6 +34,12 @@ module.exports = {
           80: "#1F2937",
           90: "#111827",
         },
+        brand: {
+          black: "#000000",
+          white: "#FFFFFF",
+          dark: "#1F1F1F",
+          light: "#F5F5F5",
+        },
       },
       borderRadius: {
         none: "0px",
@@ -60,7 +66,7 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          "Rajdhani",
+          "Raleway",
           "Inter",
           "-apple-system",
           "BlinkMacSystemFont",

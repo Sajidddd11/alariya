@@ -32,7 +32,7 @@ function ProductCardWithPrice({
   return (
     <LocalizedClientLink
       href={`/products/${product.handle}`}
-      className="group w-full relative overflow-visible shadow-sm rounded-sm hover:shadow-2xl transition-all duration-300"
+      className="group w-full relative overflow-visible shadow-sm rounded-none hover:shadow-2xl transition-all duration-300"
 
     >
       {/* Image Container - 1:1 ratio */}
@@ -53,7 +53,7 @@ function ProductCardWithPrice({
 
         {/* Discount Circle Badge - Top Right, only when there is a real discount */}
         {discountPercent > 0 && (
-          <div className="absolute top-1 right-1 px-1 rounded-sm py-[1px] bg-red-500 flex items-center justify-center shadow-lg z-20">
+          <div className="absolute top-1 right-1 px-1 rounded-none py-[1px] bg-red-500 flex items-center justify-center shadow-lg z-20">
             <span className="text-white font-bold text-sm text-center">
               {discountPercent}%
               <span className="text-xs"> off</span>

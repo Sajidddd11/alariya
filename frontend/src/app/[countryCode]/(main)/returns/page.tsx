@@ -22,7 +22,7 @@ export default function ReturnsPage() {
                             You have <strong>7 days</strong> from the date of delivery to return eligible items. Returns requested after 7 days will not be accepted except in cases of manufacturing defects.
                         </p>
 
-                        <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg mt-4">
+                        <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-sm mt-4">
                             <p className="font-semibold text-yellow-900 mb-2">⏰ Important Timeline</p>
                             <p className="text-yellow-800">
                                 The 7-day return period starts from the date you receive the product, not the order date. Make sure to inspect your items upon delivery!
@@ -181,7 +181,7 @@ export default function ReturnsPage() {
                             <li>We will arrange free pickup and offer a replacement or full refund</li>
                         </ol>
 
-                        <div className="bg-red-50 border border-red-200 p-4 rounded-lg mt-4">
+                        <div className="bg-red-50 border border-red-200 p-4 rounded-sm mt-4">
                             <p className="font-semibold text-red-900 mb-2">⚠️ Important for Damaged Items</p>
                             <p className="text-red-800">
                                 Claims for damaged items must be made within 48 hours of delivery. Take photos/videos while unboxing if the package appears damaged.

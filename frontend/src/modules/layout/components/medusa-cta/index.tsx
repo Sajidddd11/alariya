@@ -6,8 +6,7 @@ import NextJs from "../../../common/icons/nextjs"
 const MedusaCTA = () => {
   return (
     <Text className="flex gap-x-2 txt-compact-small-plus items-center">
-      Powered by
-      ZAHAN FASHION & LIFESTYLE
+      Powered by AL-ARIA PERFUME GALLERY
     </Text>
   )
 }

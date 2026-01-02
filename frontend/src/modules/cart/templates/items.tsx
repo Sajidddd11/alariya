@@ -13,7 +13,7 @@ const ItemsTemplate = ({ cart }: ItemsTemplateProps) => {
   const items = cart?.items
   return (
     <div>
-      <div className="pb-3 flex items-center hidden small:flex">
+      <div className="pb-3 items-center hidden small:flex">
         <Heading className="text-[2rem] leading-[2.75rem]">Cart</Heading>
       </div>
       <Table className="hidden small:table">

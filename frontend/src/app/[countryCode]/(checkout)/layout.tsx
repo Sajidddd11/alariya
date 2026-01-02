@@ -30,8 +30,8 @@ export default function CheckoutLayout({
             data-testid="store-link"
           >
             <img
-              src="/Zahan Fashion simplified.svg"
-              alt="ZAHAN logo"
+              src="/alaria.png"
+              alt="Alaria logo"
               width={140}
               height={32}
               className="h-auto w-20 small:w-28"

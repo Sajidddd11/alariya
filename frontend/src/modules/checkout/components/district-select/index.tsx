@@ -111,7 +111,7 @@ export default function DistrictSelect({
                     onClick={handleInputClick}
                     placeholder=" "
                     className={clx(
-                        "block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-md appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover cursor-pointer",
+                        "block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-none appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover cursor-pointer",
                         {
                             "pt-4 pb-1": !inputValue && !isOpen,
                             "py-2": inputValue || isOpen
@@ -148,7 +148,7 @@ export default function DistrictSelect({
 
                 {/* Dropdown list */}
                 {isOpen && (
-                    <div className="absolute z-[100] w-full top-full mt-1 bg-white border border-ui-border-base rounded-md shadow-lg max-h-60 overflow-auto">
+                    <div className="absolute z-[100] w-full top-full mt-1 bg-white border border-ui-border-base rounded-none shadow-lg max-h-60 overflow-auto">
                         {filteredDistricts.length > 0 ? (
                             filteredDistricts.map((district) => (
                                 <div

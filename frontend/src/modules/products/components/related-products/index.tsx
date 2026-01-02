@@ -79,7 +79,7 @@ export default async function RelatedProducts({
   return (
     <div className="w-full">
       {/* Product Grid - Latest 5 Products */}
-      <ul className="grid grid-cols-2 xsmall:grid-cols-2 small:grid-cols-3 medium:grid-cols-5 gap-3 xsmall:gap-4 small:gap-5 medium:gap-5 w-full">
+      <ul className="grid grid-cols-2 xsmall:grid-cols-2 small:grid-cols-5 gap-3 xsmall:gap-4 small:gap-5 medium:gap-5 w-full">
         {products.map((product) => (
           <li key={product.id} className="h-full w-full flex justify-center">
             <Product region={region} product={product} />
@@ -87,13 +87,13 @@ export default async function RelatedProducts({
         ))}
       </ul>
 
-      {/* Explore More Button */}
+      {/* EXPLORE MORE Button */}
       <div className="flex justify-center mt-8 small:mt-10 medium:mt-12">
         <LocalizedClientLink
           href={categoryPath}
-          className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-800 transition-colors duration-200"
+          className="inline-block px-10 py-4 bg-white text-black font-semibold border border-black hover:bg-grey-90 hover:text-white transition-all duration-300 transform hover:scale-105 active:scale-95 text-lg"
         >
-          Explore More Products
+          EXPLORE MORE Products
           <span>→</span>
         </LocalizedClientLink>
       </div>

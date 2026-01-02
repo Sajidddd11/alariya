@@ -105,7 +105,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
               {!isSimple && <Button
                 onClick={open}
                 variant="secondary"
-                className="w-full"
+                className="w-full btn-hover-animation-light"
                 data-testid="mobile-actions-button"
               >
                 <div className="flex items-center justify-between w-full">
@@ -120,7 +120,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
               <Button
                 onClick={handleAddToCart}
                 disabled={!inStock || !variant}
-                className="w-full"
+                className="w-full btn-hover-animation-dark"
                 isLoading={isAdding}
                 data-testid="mobile-cart-button"
               >
@@ -128,7 +128,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                   ? "Select variant"
                   : !inStock
                   ? "Out of stock"
-                  : "Add to cart"}
+                  : "ADD TO CART"}
               </Button>
             </div>
           </div>

@@ -75,11 +75,11 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         <div className="space-y-2">
           {/* "Starting from" segment - only when variants have different prices */}
           {hasPriceDifference && (
-            <div className="flex items-baseline gap-3">
-              <span className="text-sm text-slate-600">Starting from</span>
+            <div className="flex items-center gap-3">
+              <span className="text-sm text-slate-600 font-quentin">Starting from</span>
 
               {/* Main price (current price) - Blue color */}
-              <span className="text-2xl small:text-3xl font-bold text-blue-600">
+              <span className="text-2xl small:text-3xl font-bold text-[#339994]">
                 {cheapestPrice.calculated_price}
               </span>
 

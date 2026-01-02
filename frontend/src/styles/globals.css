@@ -1,13 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Caveat:wght@400;600;700&display=swap');
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 @layer base {
+  :root {
+    --color-brand-black: #000000;
+    --color-brand-white: #ffffff;
+    --color-brand-dark: #1f1f1f;
+    --color-brand-light: #f5f5f5;
+  }
+
   body, html, main {
     margin: 0;
     padding: 0;
+    background-color: #ffffff;
+    color: #000000;
   }
 }
 
@@ -76,6 +85,17 @@
     }
   }
 
+  @keyframes slide-in-left-hero {
+    from {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
   @keyframes slide-in-right {
     from {
       opacity: 0;
@@ -136,9 +156,30 @@
       box-shadow: 0 0 10px rgba(255, 0, 127, 0.8), inset 0 0 10px rgba(255, 0, 127, 0.3);
     }
   }
-}
 
+  @keyframes wave-fill {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+@font-face {
+  font-family: "Quentin";
+  src: url("/fonts/Quentin.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 @layer utilities {
+  .font-quentin {
+    font-family: 'Quentin', cursive;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -174,7 +215,11 @@
   }
 
   .animate-slide-in-left {
-    animation: slide-in-left 0.5s ease-out;
+    animation: slide-in-left-hero 0.8s ease-out;
+  }
+
+  .animate-slide-in-left-hero {
+    animation: slide-in-left-hero 1000ms cubic-bezier(0.32, 0.72, 0, 1);
   }
 
   .animate-slide-in-right {
@@ -334,7 +379,62 @@
   }
 
   .contrast-btn {
-    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+    @apply px-4 py-2 border-2 border-black text-black rounded-lg hover:bg-black hover:text-white transition-all duration-200 ease-in font-semibold;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-black text-white rounded-lg hover:bg-grey-90 transition-colors duration-200 font-semibold;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 border-2 border-black text-black rounded-lg hover:bg-black hover:text-white transition-all duration-200 font-semibold;
+  }
+
+  /* Disabled button styles */
+  button:disabled,
+  button[disabled],
+  .btn-unified:disabled,
+  .btn-unified[disabled],
+  button.disabled,
+  .disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    background-color: white !important;
+    color: black !important;
+    border-color: none !important;
+    pointer-events: none !important;
+  }
+
+  button:disabled:hover,
+  button[disabled]:hover,
+  .btn-unified:disabled:hover,
+  .btn-unified[disabled]:hover {
+    opacity: 0.5 !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+  /* Disabled button styles */
+  button:disabled,
+  button[disabled],
+  .btn-unified-b:disabled,
+  .btn-unified-b[disabled],
+  button.disabled,
+  .disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    background-color: white !important;
+    color: black !important;
+    border-color: none !important;
+    pointer-events: none !important;
+  }
+
+  button:disabled:hover,
+  button[disabled]:hover,
+  .btn-unified-b:disabled:hover,
+  .btn-unified-b[disabled]:hover {
+    opacity: 0.5 !important;
+    transform: none !important;
+    box-shadow: none !important;
   }
 
   .text-xsmall-regular {
@@ -387,5 +487,263 @@
 
   .text-3xl-semi {
     @apply text-[32px] leading-[44px] font-semibold;
+  }
+
+  /* Unified button component styles */
+  .unified-button {
+    position: relative;
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+  }
+
+  .unified-button:hover {
+    color: white;
+  }
+
+  .unified-button:hover .wave-segment {
+    animation: wave-fill 0.5s ease-out forwards;
+  }
+
+  /* Stagger animation for each segment */
+  .unified-button:hover .wave-segment:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .unified-button:hover .wave-segment:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .unified-button:hover .wave-segment:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .unified-button:hover .wave-segment:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  .unified-button:hover .wave-segment:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+
+  .unified-button:hover .wave-segment:nth-child(6) {
+    animation-delay: 0.5s;
+  }
+
+  .unified-button:hover .wave-segment:nth-child(7) {
+    animation-delay: 0.6s;
+  }
+
+  .unified-button:hover .wave-segment:nth-child(8) {
+    animation-delay: 0.7s;
+  }
+
+  .unified-button:hover .wave-segment:nth-child(9) {
+    animation-delay: 0.8s;
+  }
+
+  .unified-button:hover .wave-segment:nth-child(10) {
+    animation-delay: 0.9s;
+  }
+
+  /* Unified button style class for @medusajs/ui Button or any button element */
+  .btn-unified {
+    position: relative;
+    overflow: hidden;
+    background-color: none !important;
+    color: black !important;
+    border: 2px solid black !important;
+    font-weight: 500;
+    transition: color 0.2s ease-out;
+  }
+
+  .btn-unified:hover {
+    color: white !important;
+  }
+
+  .btn-unified::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: black;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: none;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .btn-unified:hover::before {
+    animation: btn-unified-wave 0.2s ease-out forwards;
+  }
+  /* Unified black button style class for @medusajs/ui Button or any button element */
+  .btn-unified-b {
+    position: relative;
+    overflow: hidden;
+    background-color: none !important;
+    color: white !important;
+    border: 1px solid black !important;
+    font-weight: 500;
+    transition: color 0.2s ease-out;
+  }
+
+  .btn-unified-b:hover {
+    color: black !important;
+  }
+
+  .btn-unified-b::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: white;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: none;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .btn-unified-b:hover::before {
+    animation: btn-unified-wave 0.2s ease-out forwards;
+  }
+
+  @keyframes btn-unified-wave {
+    0% {
+      transform: scaleY(0);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
+  .btn-unified > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Wave button hover animation - applies wave effect with white text */
+  .wave-btn {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wave-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #000;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.2s ease-in-out;
+    z-index: 0;
+  }
+
+  .wave-btn:hover::before {
+    transform: scaleY(1);
+  }
+
+  .wave-btn:hover {
+    color: white;
+  }
+
+  /* Universal button hover animation class */
+  .btn-hover-animation {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+    transform-origin: center;
+  }
+
+  .btn-hover-animation::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: currentColor;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.5s ease-in-out;
+    z-index: -1;
+    opacity: 0.9;
+  }
+
+  .btn-hover-animation:hover {
+    color: white;
+    transform: scale(1.05);
+  }
+
+  .btn-hover-animation:hover::before {
+    transform: scaleY(1);
+  }
+
+  .btn-hover-animation:active {
+    transform: scale(0.95);
+  }
+
+  /* Variant: Light background with dark text hover animation */
+  .btn-hover-animation-light {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+  }
+
+  .btn-hover-animation-light::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #000;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease-in-out;
+    z-index: -1;
+  }
+
+  .btn-hover-animation-light:hover {
+    color: white;
+    transform: scale(1.05);
+  }
+
+  .btn-hover-animation-light:hover::before {
+    transform: scaleY(1);
+  }
+
+  .btn-hover-animation-light:active {
+    transform: scale(0.95);
+  }
+
+  /* Variant: Dark background with white text hover animation */
+  .btn-hover-animation-dark {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+  }
+
+  .btn-hover-animation-dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: white;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease-in-out;
+    z-index: -1;
+  }
+
+  .btn-hover-animation-dark:hover {
+    color: #000;
+    transform: scale(1.05);
+  }
+
+  .btn-hover-animation-dark:hover::before {
+    transform: scaleY(1);
+  }
+
+  .btn-hover-animation-dark:active {
+    transform: scale(0.95);
   }
 }

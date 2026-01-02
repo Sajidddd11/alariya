@@ -100,7 +100,7 @@ const CartDropdown = ({
       <Popover className="relative h-full">
         <PopoverButton className="h-full">
           <LocalizedClientLink
-            className="flex items-center gap-2 px-3 py-2 text-grey-70 hover:text-grey-90 hover:bg-grey-5 rounded-lg transition-colors text-sm font-medium relative"
+            className="flex items-center gap-2 px-3 py-2 text-grey-70 hover:text-grey-90 hover:bg-grey-5 transition-colors text-sm font-medium relative"
             href="/cart"
             data-testid="nav-cart-link"
           >
@@ -127,7 +127,6 @@ const CartDropdown = ({
                 </span>
               )}
             </div>
-            <span className="hidden medium:inline">Cart</span>
           </LocalizedClientLink>
         </PopoverButton>
         <Transition
@@ -142,7 +141,7 @@ const CartDropdown = ({
         >
           <PopoverPanel
             static
-            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[400px] text-ui-fg-base shadow-lg rounded-b-lg"
+            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[400px] text-ui-fg-base shadow-lg"
             data-testid="nav-cart-dropdown"
           >
             <div className="px-4 py-3 flex items-center justify-center border-b border-gray-100">
@@ -234,14 +233,11 @@ const CartDropdown = ({
                       })}
                     </span>
                   </div>
-                  <LocalizedClientLink href="/cart" passHref>
-                    <Button
-                      className="w-full"
-                      size="large"
-                      data-testid="go-to-cart-button"
-                    >
-                      Go to cart
-                    </Button>
+                  <LocalizedClientLink
+                    href="/cart"
+                    className="btn-unified w-full inline-block px-4 py-2 text-grey-90 font-semibold text-base text-center relative z-10"
+                  >
+                    <span className="relative z-10">Go to Cart</span>
                   </LocalizedClientLink>
                 </div>
               </>
@@ -251,13 +247,11 @@ const CartDropdown = ({
                   <span>0</span>
                 </div>
                 <span className="text-ui-fg-subtle">Your shopping bag is empty.</span>
-                <LocalizedClientLink href="/store">
-                  <>
-                    <span className="sr-only">Go to all products page</span>
-                    <Button onClick={close} variant="secondary" size="small">
-                      Explore products
-                    </Button>
-                  </>
+                <LocalizedClientLink
+                  href="/store"
+                  className="btn-unified inline-block px-4 py-1 text-grey-90 font-semibold relative z-10"
+                >
+                  <span className="relative z-10">EXPLORE PRODUCTS</span>
                 </LocalizedClientLink>
               </div>
             )}

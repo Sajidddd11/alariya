@@ -1,4 +1,5 @@
 import InteractiveLink from "@modules/common/components/interactive-link"
+import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
 const EmptyCartMessage = () => {
   return (
@@ -28,7 +29,7 @@ const EmptyCartMessage = () => {
 
         {/* Heading */}
         <h1 className="text-3xl small:text-4xl font-bold text-slate-900 mb-4">
-          Your cart is empty
+          YOUR CART IS EMPTY
         </h1>
 
         {/* Description */}
@@ -38,18 +39,18 @@ const EmptyCartMessage = () => {
 
         {/* Buttons */}
         <div className="flex flex-col small:flex-row gap-3 justify-center">
-          <a
+          <LocalizedClientLink
             href="/store"
-            className="inline-block px-6 py-3 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors font-medium text-sm"
+            className="btn-unified inline-block px-6 small:px-8 py-2 small:py-3 text-grey-90 font-semibold relative z-10"
           >
-            Start Shopping
-          </a>
-          <a
+            <span className="relative z-10">START SHOPPING</span>
+          </LocalizedClientLink>
+          <LocalizedClientLink
             href="/"
-            className="inline-block px-6 py-3 bg-slate-100 text-slate-700 border border-slate-200 rounded-lg hover:bg-slate-200 transition-colors font-medium text-sm"
+            className="btn-unified inline-block px-6 small:px-8 py-2 small:py-3 text-grey-90 font-semibold relative z-10"
           >
-            Continue Shopping
-          </a>
+            <span className="relative z-10">CONTINUE SHOPPING</span>
+          </LocalizedClientLink>
         </div>
       </div>
     </div>

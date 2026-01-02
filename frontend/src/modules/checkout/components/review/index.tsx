@@ -24,7 +24,7 @@ const Review = ({ cart }: { cart: any }) => {
     }
 
     return (
-        <div className="bg-white rounded-lg border border-slate-200 p-6 small:p-8">
+        <div className="bg-white rounded-sm border border-slate-200 p-6 small:p-8">
             {/* Header Section */}
             <div className="flex flex-row items-center justify-between mb-8 pb-6 border-b border-slate-200">
                 <Heading
@@ -66,7 +66,7 @@ const Review = ({ cart }: { cart: any }) => {
             {isOpen && previousStepsCompleted && (
                 <div className="space-y-6">
                     {/* Terms & Conditions */}
-                    <div className="bg-slate-50 rounded-lg p-5 border border-slate-200">
+                    <div className="bg-slate-50 rounded-sm p-5 border border-slate-200">
                         <Text className="text-sm text-slate-700 leading-relaxed">
                             By clicking "Place Order", you confirm that you have read and accept our{" "}
                             <a href="/terms-of-service" className="text-blue-600 hover:underline">

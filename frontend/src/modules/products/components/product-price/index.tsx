@@ -30,7 +30,7 @@ export default function ProductPrice({
 
   return (
     <div className="flex flex-col text-ui-fg-base">
-      <span className="text-3xl font-bold text-slate-900">
+      <span className="text-3xl font-bold text-[#339994]">
         <span
           data-testid="product-price"
           data-value={selectedPrice.calculated_price_number}
@@ -50,7 +50,7 @@ export default function ProductPrice({
               {selectedPrice.original_price}
             </span>
           </p>
-          <span className="text-ui-fg-interactive">
+          <span className="text-ui-fg-interactive text-[#339994]">
             -{selectedPrice.percentage_diff}%
           </span>
         </>

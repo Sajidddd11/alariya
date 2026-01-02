@@ -131,7 +131,7 @@ export default function ProductPreview({
     return false
   }, [selectedVariant])
 
-  // Determine if Add to Cart button should be enabled
+  // Determine if ADD TO CART button should be enabled
   const canAddToCart = useMemo(() => {
     if (!inStock) return false
 
@@ -230,7 +230,7 @@ export default function ProductPreview({
     if (hasVariants && isDesktop) {
       setIsDrawerOpen(true)
     } else {
-      // Mobile or no variants - directly add to cart
+      // Mobile or no variants - directly ADD TO CART
       handleAddToCart(e)
     }
   }
@@ -266,7 +266,7 @@ export default function ProductPreview({
   return (
     <div
       ref={cardRef}
-      className={`group relative flex flex-col h-fit w-full bg-white shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer ${isNavigating ? 'opacity-75' : ''
+      className={`group relative flex flex-col h-fit w-full bg-white transition-all duration-700 cursor-pointer animate-fade-in-up ${isNavigating ? 'opacity-75' : ''
         }`}
       onClick={handleCardClick}
       data-clickable="true"
@@ -305,29 +305,24 @@ export default function ProductPreview({
           </div>
         )}
 
-        {/* Base Price Badge - bottom right, show only when there is a discount */}
+
+        {/* Border  */}
+        <div className="absolute bottom-4 right-4 top-4 left-4 hover:bottom-0 hover:right-0 hover:top-0 hover:left-0 border border-black inset-0 transition-all duration-300" />
+
+        {/* Discount Badge - show only when there is a real discount */}
         {hasDiscount && (
-          <div className="absolute bottom-1 right-0 px-2 py-[2px] bg-slate-900 flex items-center justify-center shadow-lg z-20">
-            <span className="text-white font-semibold text-xs line-through">
-              {formattedBasePrice}
+          <div className="absolute top-6 left-0 bg-[#1e1e1e] z-20 text-white px-4 py-[6px] text-md font-bold flex items-center justify-center shadow-2xl">
+            <span className="text-white font-bold text-md text-center">
+              {discountPercentage}%
+              <span className="text-xs"> off</span>
             </span>
           </div>
         )}
       </div>
 
-      {/* Discount Badge - show only when there is a real discount */}
-      {hasDiscount && (
-        <div className="absolute top-1 left-1 px-3 py-[1px] bg-red-500 flex items-center justify-center shadow-2xl  z-20">
-          <span className="text-white font-bold text-md text-center">
-            {discountPercentage}%
-            <span className="text-xs"> off</span>
-          </span>
-        </div>
-      )}
-
 
       {/* Content Container */}
-      <div className="flex flex-col flex-1 p-2 small:p-3 medium:p-4 bg-gray-100">
+      <div className="flex flex-col flex-1 pt-2 small:pt-3 medium:pt-4 bg-none">
         {/* Product Type */}
         {product.type && (
           <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-1">
@@ -336,22 +331,9 @@ export default function ProductPreview({
         )}
 
         {/* Title */}
-        <h3 className="text-base small:text-sm font-bold text-slate-900 line-clamp-2 mb-1 small:mb-2">
+        <h3 className="text-xl text-center font-normal text-[#232323] hover:text-[#339994] py-3 line-clamp-2">
           {product.title}
         </h3>
-
-        {/* Pricing Section */}
-        <div className="space-y-1 mb-2 small:mb-3 pt-1 small:pt-2">
-          {/* Current Price (highlighted) */}
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-slate-600">Price:</span>
-            <span className="text-lg font-bold text-slate-900">
-              {formattedDiscountedPrice}
-            </span>
-          </div>
-
-
-        </div>
 
         {/* Variant Options - Only show on mobile, hidden on desktop (shown in drawer instead) */}
         {hasVariants && (
@@ -390,14 +372,14 @@ export default function ProductPreview({
           </div>
         )}
 
-        {/* Add to Cart Button */}
-        <div className="">
+        {/* ADD TO CART Button */}
+        <div className="flex flex-col-reverse small:flex-row small:border small:border-black items-center">
           <button
             onClick={handleButtonClick}
             disabled={isDesktop && hasVariants ? false : (!canAddToCart || isAdding)}
-            className={`w-full py-2 px-3 font-semibold text-sm transition-all flex items-center justify-center gap-2 ${(isDesktop && hasVariants) || (canAddToCart && !isAdding)
-                ? "bg-slate-900 text-white hover:bg-slate-800"
-                : "bg-slate-200 text-slate-500 cursor-not-allowed"
+            className={`w-full text-sm px-4 py-4 text-black border border-black small:border-l-0 small:border-t-0 small:border-b-0 font-semibold btn-hover-animation-light mt-auto ${(isDesktop && hasVariants) || (canAddToCart && !isAdding)
+              ? ""
+              : " cursor-not-allowed"
               }`}
           >
             {isAdding ? (
@@ -408,9 +390,26 @@ export default function ProductPreview({
             ) : !inStock ? (
               "Out of Stock"
             ) : (
-              "Add to Cart"
+              "ADD TO CART"
             )}
           </button>
+          {/* Current Price (highlighted) */}
+          <div className="h-fit w-full items-center">{/* Base Price Badge - bottom right, show only when there is a discount */}
+            {hasDiscount ? (
+              <div className="h-full flex flex-col  py-2">
+                <span className="text-sm text-[#969696] mx-auto line-through">
+                  {formattedBasePrice}
+                </span>
+                <span className="text-sm font-bold text-[#339994] mx-auto">
+                  {formattedDiscountedPrice}
+                </span>
+              </div>
+            ) : (
+              <div className="text-sm py-4 text-center font-bold text-[#339994] mx-auto">
+                {formattedDiscountedPrice}
+              </div>
+            )}
+          </div>
         </div>
 
 

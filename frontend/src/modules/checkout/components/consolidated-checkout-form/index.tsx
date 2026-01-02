@@ -204,7 +204,7 @@ export default function ConsolidatedCheckoutForm({
                     level="h2"
                     className="flex flex-row text-3xl-regular gap-x-2 items-baseline mb-6"
                 >
-                    Shipping Address
+                    SHIPPING ADDRESS
                 </Heading>
 
                 <div className="pb-8">
@@ -234,7 +234,7 @@ export default function ConsolidatedCheckoutForm({
                     level="h2"
                     className="flex flex-row text-3xl-regular gap-x-2 items-baseline mb-6"
                 >
-                    Payment Method
+                    PAYMENT METHOD
                 </Heading>
 
                 {paymentMethods ? (
@@ -242,6 +242,7 @@ export default function ConsolidatedCheckoutForm({
                         <RadioGroup
                             value={selectedPaymentMethod}
                             onChange={setSelectedPaymentMethod}
+                            className={"grid grid-cols-1 small:grid-cols-2 gap-2 items-center"}
                         >
                             {paymentMethods.map((paymentMethod) => (
                                 <div key={paymentMethod.id}>
@@ -287,13 +288,14 @@ export default function ConsolidatedCheckoutForm({
 
             {/* Submit Button */}
             <SubmitButton
-                className="w-full"
+                className="btn-unified w-full inline-block px-4 py-2 text-grey-90 font-semibold text-base text-center relative z-10"
                 data-testid="submit-checkout-button"
             >
-                Continue to Review
+                <span className="relative z-10">Continue to Review</span>
             </SubmitButton>
+
             {!isFormValid && (
-                <Text className="text-ui-fg-subtle txt-small mt-2 text-center">
+                <Text className="text-ui-fg-subtle txt-small mt-2 text-center rounded-none">
                     Please fill in all required fields and select shipping & payment methods
                 </Text>
             )}
