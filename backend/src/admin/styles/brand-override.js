@@ -1,7 +1,7 @@
 // Replace "Medusa" with "Zahan" on admin login page and change logo
 (function () {
     // Configuration - Change these values
-    const BRAND_NAME = 'Zahan';
+    const BRAND_NAME = 'Al-Ariya';
     // Use relative path from admin folder  
     const LOGO_URL = 'assets/zahan-logo.png'; // Logo in admin assets folder
 
