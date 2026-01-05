@@ -1,8 +1,8 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-    title: "Terms of Service | Zahan Fashion and Lifestyle",
-    description: "Read the terms and conditions for using Zahan Fashion and Lifestyle online store.",
+    title: "Terms of Service | Al-Aria Perfume Gallery",
+    description: "Read the terms and conditions for using Al-Aria Perfume Gallery online store.",
 }
 
 export default function TermsOfServicePage() {
@@ -19,7 +19,7 @@ export default function TermsOfServicePage() {
                     <section>
                         <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900">Agreement to Terms</h2>
                         <p>
-                            Welcome to Zahan Fashion and Lifestyle. By accessing or using our website and services, you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you disagree with any part of these terms, you may not access our services.
+                            Welcome to Al-Aria Perfume Gallery. By accessing or using our website and services, you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you disagree with any part of these terms, you may not access our services.
                         </p>
                         <p>
                             These Terms are governed by the laws of Bangladesh, including the Digital Commerce Operation Guidelines, 2021.
@@ -107,7 +107,7 @@ export default function TermsOfServicePage() {
                     <section>
                         <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900">Intellectual Property</h2>
                         <p>
-                            All content on this website, including text, graphics, logos, images, and software, is the property of Zahan Fashion and Lifestyle or its content suppliers and is protected by Bangladesh and international copyright laws.
+                            All content on this website, including text, graphics, logos, images, and software, is the property of Al-Aria Perfume Gallery or its content suppliers and is protected by Bangladesh and international copyright laws.
                         </p>
                         <p>You may not:</p>
                         <ul className="list-disc pl-6 space-y-2">
@@ -135,7 +135,7 @@ export default function TermsOfServicePage() {
                     <section>
                         <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900">Limitation of Liability</h2>
                         <p>
-                            To the fullest extent permitted by Bangladesh law, Zahan Fashion and Lifestyle shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services or products.
+                            To the fullest extent permitted by Bangladesh law, Al-Aria Perfume Gallery shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services or products.
                         </p>
                         <p>
                             Our total liability shall not exceed the amount you paid for the specific product or service in question.
@@ -145,7 +145,7 @@ export default function TermsOfServicePage() {
                     <section>
                         <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900">Indemnification</h2>
                         <p>
-                            You agree to indemnify and hold harmless Zahan Fashion and Lifestyle from any claims, damages, losses, liabilities, and expenses arising from your violation of these Terms or your use of our services.
+                            You agree to indemnify and hold harmless Al-Aria Perfume Gallery from any claims, damages, losses, liabilities, and expenses arising from your violation of these Terms or your use of our services.
                         </p>
                     </section>
 
@@ -177,7 +177,7 @@ export default function TermsOfServicePage() {
                         <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900">Contact Information</h2>
                         <p>For questions about these Terms, please contact us:</p>
                         <div className="mt-4 space-y-2">
-                            <p><strong>Zahan Fashion and Lifestyle</strong></p>
+                            <p><strong>Al-Aria Perfume Gallery</strong></p>
                             <p>Email: <a href="mailto:support@zahan.com" className="text-blue-600 hover:underline">support@zahan.com</a></p>
                             <p>Phone: +880-XXXX-XXXXXX</p>
                             <p>Address: [Your Business Address], Dhaka, Bangladesh</p>

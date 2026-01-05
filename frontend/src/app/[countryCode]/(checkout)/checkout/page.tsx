@@ -36,7 +36,7 @@ export default async function Checkout({
             <div className="">
               <Review cart={cart} />
             </div>
-            <div className="bg-white rounded-none border border-slate-200 p-5 small:p-6 h-fit small:sticky top-20 small:top-24">
+            <div className="bg-none rounded-none border border-slate-200 h-fit small:sticky top-20 small:top-24">
               <CheckoutSummary cart={cart} showDiscountCode={false} />
             </div>
           </div>

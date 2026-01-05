@@ -1,8 +1,8 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-    title: "Privacy Policy | Zahan Fashion and Lifestyle",
-    description: "Learn how Zahan Fashion and Lifestyle collects, uses, and protects your personal information.",
+    title: "Privacy Policy | Al-Aria Perfume Gallery",
+    description: "Learn how Al-Aria Perfume Gallery collects, uses, and protects your personal information.",
 }
 
 export default function PrivacyPolicyPage() {
@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
                     <section>
                         <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900">Introduction</h2>
                         <p>
-                            Welcome to Zahan Fashion and Lifestyle (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and make purchases from our online store.
+                            Welcome to Al-Aria Perfume Gallery (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and make purchases from our online store.
                         </p>
                         <p>
                             This policy complies with the Digital Security Act, 2018 and other applicable laws of Bangladesh.
@@ -131,7 +131,7 @@ export default function PrivacyPolicyPage() {
                         <h2 className="text-2xl font-semibold mt-8 mb-4 text-gray-900">Contact Us</h2>
                         <p>If you have questions or concerns about this Privacy Policy, please contact us:</p>
                         <div className="mt-4 space-y-2">
-                            <p><strong>Zahan Fashion and Lifestyle</strong></p>
+                            <p><strong>Al-Aria Perfume Gallery</strong></p>
                             <p>Email: <a href="mailto:privacy@zahan.com" className="text-blue-600 hover:underline">privacy@zahan.com</a></p>
                             <p>Phone: +880-XXXX-XXXXXX</p>
                             <p>Address: [Your Business Address], Dhaka, Bangladesh</p>

@@ -270,7 +270,7 @@ export default function ProductActions({
                   isAdding ||
                   !isValidVariant
                 }
-                variant="primary"
+                variant="transparent"
                 className="w-full rounded-none text-sm xsmall:text-base py-3 btn-unified-b"
                 isLoading={isAdding}
                 data-testid="add-product-button"
@@ -297,7 +297,7 @@ export default function ProductActions({
                   !isValidVariant
                 }
                 variant="secondary"
-                className="w-full bg-white rounded-none text-base font-semibold btn-unified"
+                className="w-full rounded-none text-base font-semibold btn-unified"
                 data-testid="buy-now-button"
               >
                 <span className="relative z-10">

@@ -7,8 +7,8 @@ import Divider from "@modules/common/components/divider"
 
 const CheckoutSummary = ({ cart, shippingOverride, showDiscountCode = true }: { cart: any; shippingOverride?: number; showDiscountCode?: boolean }) => {
   return (
-    <div className="flex flex-col-reverse small:flex-col gap-y-6 small:gap-y-8 py-6 small:py-0">
-      <div className="w-full bg-white flex flex-col">
+    <div className="flex flex-col-reverse bg-[#339994]/5 px-5 small:px-6 py-6 small:flex-col gap-y-6 small:gap-y-8">
+      <div className="w-full flex flex-col">
         <Divider className="my-4 small:my-6 small:hidden" />
         <Heading
           level="h2"

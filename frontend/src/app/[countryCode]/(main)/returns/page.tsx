@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-    title: "Returns & Refunds | Zahan Fashion and Lifestyle",
+    title: "Returns & Refunds | Al-Aria Perfume Gallery",
     description: "Learn about our return policy, exchange process, and refund procedures.",
 }
 
@@ -13,7 +13,7 @@ export default function ReturnsPage() {
 
                 <div className="prose prose-gray max-w-none space-y-6 text-gray-700">
                     <p className="text-lg">
-                        At Zahan Fashion and Lifestyle, we want you to be completely satisfied with your purchase. If you&apos;re not happy with your order, we&apos;re here to help with returns and exchanges.
+                        At Al-Aria Perfume Gallery, we want you to be completely satisfied with your purchase. If you&apos;re not happy with your order, we&apos;re here to help with returns and exchanges.
                     </p>
 
                     <section>

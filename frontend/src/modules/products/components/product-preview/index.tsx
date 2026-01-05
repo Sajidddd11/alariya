@@ -373,28 +373,31 @@ export default function ProductPreview({
         )}
 
         {/* ADD TO CART Button */}
-        <div className="flex flex-col-reverse small:flex-row small:border small:border-black items-center">
-          <button
-            onClick={handleButtonClick}
-            disabled={isDesktop && hasVariants ? false : (!canAddToCart || isAdding)}
-            className={`w-full text-sm px-4 py-4 text-black border border-black small:border-l-0 small:border-t-0 small:border-b-0 font-semibold btn-hover-animation-light mt-auto ${(isDesktop && hasVariants) || (canAddToCart && !isAdding)
-              ? ""
-              : " cursor-not-allowed"
-              }`}
-          >
-            {isAdding ? (
-              <>
-                <DotSpinner size="sm" color="#ffffff" />
-                <span>Adding</span>
-              </>
-            ) : !inStock ? (
-              "Out of Stock"
-            ) : (
-              "ADD TO CART"
-            )}
-          </button>
+        <div className="flex flex-col-reverse small:grid small:grid-cols-2 items-center">
+          <div className="h-full">
+            <button
+              onClick={handleButtonClick}
+              disabled={isDesktop && hasVariants ? false : (!canAddToCart || isAdding)}
+              className={`w-full h-full text-sm  text-black font-semibold btn-unified mt-auto ${(isDesktop && hasVariants) || (canAddToCart && !isAdding)
+                ? ""
+                : " cursor-not-allowed"
+                }`}
+            >
+              {isAdding ? (
+                <span className="flex gap-1 w-fit mx-auto items-center">
+                  <DotSpinner size="sm" color="#000" />
+                  <span className="text-sm">Adding</span>
+                </span>
+              ) : !inStock ? (
+                <span className="relative z-10 px-4 py-2 small:py-4">Out of Stock</span>
+              ) : (
+                <span className="relative z-10 px-4 py-2 small:py-4"> ADD TO CART</span>
+              )}
+            </button>
+          </div>
+
           {/* Current Price (highlighted) */}
-          <div className="h-fit w-full items-center">{/* Base Price Badge - bottom right, show only when there is a discount */}
+          <div className="h-fit w-full small:border small:border-black small:border-l-0  items-center">{/* Base Price Badge - bottom right, show only when there is a discount */}
             {hasDiscount ? (
               <div className="h-full flex flex-col  py-2">
                 <span className="text-sm text-[#969696] mx-auto line-through">

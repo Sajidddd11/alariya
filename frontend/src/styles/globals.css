@@ -551,8 +551,8 @@
     position: relative;
     overflow: hidden;
     background-color: none !important;
-    color: black !important;
-    border: 2px solid black !important;
+    color: #0f172a !important;
+    border: 1px solid #0f172a !important;
     font-weight: 500;
     transition: color 0.2s ease-out;
   }
@@ -568,7 +568,7 @@
     left: 0;
     right: 0;
     height: 100%;
-    background-color: black;
+    background-color: #0f172a;
     transform: scaleY(0);
     transform-origin: bottom;
     transition: none;
@@ -583,15 +583,15 @@
   .btn-unified-b {
     position: relative;
     overflow: hidden;
-    background-color: none !important;
+    background-color: #0f172a !important;
     color: white !important;
-    border: 1px solid black !important;
+    border: 1px solid #0f172a !important;
     font-weight: 500;
     transition: color 0.2s ease-out;
   }
 
   .btn-unified-b:hover {
-    color: black !important;
+    color: #0f172a !important;
   }
 
   .btn-unified-b::before {

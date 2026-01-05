@@ -12,6 +12,7 @@ export default function DotSpinner({
   color = "#262626",
 }: DotSpinnerProps) {
   const sizeMap = {
+    xs: { container: "w-4 h-4", dot: "w-.5 h-.5" },
     sm: { container: "w-8 h-8", dot: "w-1.5 h-1.5" },
     md: { container: "w-12 h-12", dot: "w-2.5 h-2.5" },
     lg: { container: "w-16 h-16", dot: "w-3 h-3" },

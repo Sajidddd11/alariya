@@ -1,7 +1,7 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-    title: "Shipping Information | Zahan Fashion and Lifestyle",
+    title: "Shipping Information | Al-Aria Perfume Gallery",
     description: "Learn about our shipping policies, delivery times, and costs across Bangladesh.",
 }
 

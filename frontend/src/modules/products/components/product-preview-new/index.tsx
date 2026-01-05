@@ -394,20 +394,20 @@ export default function ProductPreviewNew({
           <button
             onClick={handleButtonClick}
             disabled={isDesktop && hasVariants ? false : (!canAddToCart || isAdding)}
-            className={`w-full border border-black text-sm px-2 py-1 text-black font-semibold btn-hover-animation-light mt-auto ${(isDesktop && hasVariants) || (canAddToCart && !isAdding)
+            className={`w-full border border-black text-sm px-2 py-1 text-black font-semibold btn-unified mt-auto ${(isDesktop && hasVariants) || (canAddToCart && !isAdding)
               ? ""
               : " cursor-not-allowed"
               }`}
           >
             {isAdding ? (
-              <>
-                <DotSpinner size="sm" color="#ffffff" />
-                <span>Adding</span>
-              </>
+              <span className="flex gap-1 items-center">
+                <DotSpinner size="sm" color="#000" />
+                <span className="text-sm">Adding</span>
+              </span>
             ) : !inStock ? (
-              "Out of Stock"
+              <span className="relative z-10">Out of Stock</span> 
             ) : (
-              "ADD TO CART"
+               <span className="relative z-10"> ADD TO CART</span>
             )}
           </button>
         </div>

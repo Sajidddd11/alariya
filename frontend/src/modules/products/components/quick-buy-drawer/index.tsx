@@ -119,10 +119,10 @@ export default function QuickBuyDrawer({
                                 }`}
                         >
                             {isAdding ? (
-                                <>
-                                    <DotSpinner size="sm" color="#ffffff" />
-                                    <span>Adding</span>
-                                </>
+                                <span className="flex gap-1 items-center">
+                                    <DotSpinner size="sm" color="#000" />
+                                    <span className="text-sm">Adding</span>
+                                </span>
                             ) : !selectedVariant ? (
                                 "Select Options"
                             ) : !inStock || !isValidVariant ? (

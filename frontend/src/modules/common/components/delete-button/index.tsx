@@ -33,7 +33,7 @@ const DeleteButton = ({
       data-testid={dataTestid}
     >
       <button
-        className="flex gap-x-1 text-ui-fg-subtle hover:text-ui-fg-base cursor-pointer"
+        className="flex items-center gap-x-1 text-ui-fg-subtle hover:text-ui-fg-base cursor-pointer"
         onClick={() => handleDelete(id)}
       >
         {isDeleting ? <DotSpinner size="sm" color="currentColor" /> : <Trash />}

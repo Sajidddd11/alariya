@@ -32,8 +32,8 @@ const StoreTemplate = ({
             {search
               ? `Search Results for "${search}"`
               : categoryId
-              ? "Category Products"
-              : "All Products"}
+              ? "CATEGORY PRODUCTS"
+              : "ALL PRODUCTS"}
           </h1>
           <p className="text-grey-60 text-xs small:text-sm medium:text-base">
             {search

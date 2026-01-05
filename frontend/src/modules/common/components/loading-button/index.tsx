@@ -16,7 +16,7 @@ interface LoadingButtonProps
 
 export default function LoadingButton({
   isLoading = false,
-  variant = "primary",
+  variant = "transparent",
   size = "base",
   children,
   disabled,
@@ -34,24 +34,18 @@ export default function LoadingButton({
       variant={variant}
       size={size}
       disabled={isDisabled}
-      className={clx(
-        "relative btn-unified",
-        enhancedLargePrimary && [
-          "w-full",
-          "py-4",
-          "text-base font-semibold",
-        ],
-        className
-      )}
+      className="btn-unified w-full rounded-none"
     >
-      {isLoading ? (
-        <div className="flex items-center justify-center gap-2">
-          <DotSpinner size="sm" color="currentColor" />
-          <span>{children}</span>
-        </div>
-      ) : (
-        children
-      )}
+      <span className="relative z-10">
+        {isLoading ? (
+          <div className="flex items-center justify-center gap-2">
+            <DotSpinner size="sm" color="currentColor" />
+            <span>{children}</span>
+          </div>
+        ) : (
+          children
+        )}
+      </span>
     </Button>
   )
 }

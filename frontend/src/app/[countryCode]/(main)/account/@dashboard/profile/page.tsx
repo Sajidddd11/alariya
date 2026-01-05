@@ -12,7 +12,7 @@ import { retrieveCustomer } from "@lib/data/customer"
 
 export const metadata: Metadata = {
   title: "Profile",
-  description: "View and edit your ZAHAN Store profile.",
+  description: "View and edit your Al-Aria Perfume Gallery profile.",
 }
 
 export default async function Profile() {
