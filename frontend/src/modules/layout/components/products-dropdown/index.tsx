@@ -36,7 +36,7 @@ export default function ProductsDropdown({
       </LocalizedClientLink>
 
       {isOpen && (
-        <div className="absolute top-full left-0 w-56 bg-grey-90 border-grey-90 border shadow-lg rounded-sm z-[999]">
+        <div className="absolute top-full left-0 w-56 bg-[#339994]/30 shadow-lg rounded-sm z-[999]">
           <div className="py-2">
             {categories.length > 0 ? (
               categories.map((category) => (
@@ -44,7 +44,7 @@ export default function ProductsDropdown({
                   key={category.id}
                   href={`/store?category=${category.id}`}
                   onClick={() => setIsOpen(false)}
-                  className="block pl-4 py-2 hover:pl-8 text-sm hover:text-base text-grey-5 transition-all duration-300 ease-in-out"
+                  className="block pl-4 py-2 hover:pl-8 text-sm hover:text-base text-black transition-all duration-300 ease-in-out"
                 >
                   {category.name}
                 </LocalizedClientLink>
