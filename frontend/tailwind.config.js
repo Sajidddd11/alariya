@@ -76,6 +76,10 @@ module.exports = {
           "Ubuntu",
           "sans-serif",
         ],
+        nunito: [
+          "Nunito Sans",
+          "sans-serif",
+        ],
       },
       keyframes: {
         ring: {

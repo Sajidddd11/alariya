@@ -13,7 +13,7 @@ export default async function Footer() {
   const productCategories = filterCategoriesWithProducts(allCategories)
 
   return (
-    <footer className="w-full bg-gradient-to-b from-slate-900 to-slate-950 text-white">
+    <footer className="w-full bg-gradient-to-b from-slate-900 to-slate-950 text-white font-nunito">
 
       <div className="max-w-6xl py-12 px-4 small:px-6 mx-auto w-full">
         <div className="grid grid-cols-2 small:grid-cols-4 gap-4 small:gap-6">
@@ -31,7 +31,7 @@ export default async function Footer() {
             <div className="flex flex-col small:flex-row gap-1 small:gap-5 mt-5 items-center">
               {/* link icon  */}
               <div className="flex gap-4 items-center py-4">
-                <LocalizedClientLink
+                <a
                   href={socialMediaLinks.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -39,8 +39,8 @@ export default async function Footer() {
                   aria-label="Visit our Facebook page"
                 >
                   <FacebookIcon size={20} color="white" />
-                </LocalizedClientLink>
-                <LocalizedClientLink
+                </a>
+                <a
                   href={socialMediaLinks.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -48,8 +48,8 @@ export default async function Footer() {
                   aria-label="Visit our Instagram page"
                 >
                   <InstagramIcon size={20} color="white" />
-                </LocalizedClientLink>
-                <LocalizedClientLink
+                </a>
+                <a
                   href={socialMediaLinks.youtube}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -57,20 +57,20 @@ export default async function Footer() {
                   aria-label="Visit our YouTube channel"
                 >
                   <YouTubeIcon size={24} color="white" />
-                </LocalizedClientLink>
+                </a>
               </div>
               <div className="text-white text-2xl hidden small:block">|</div>
               <div className="flex flex-col small:flex-row gap-1 small:gap-3">
                 {/* mail  */}
-                <div className="flex w-fit gap-2 items-center">
+                <a href="mailto:al-aria@gmail.com" className="flex w-fit gap-2 items-center hover:text-[#339994] transition-colors">
                   <MailIcon size={20} color="#ffffff" />
-                  <h1 className="text-base font-semibold text-white">al-aria@gmail.com</h1>
-                </div>
+                  <h1 className="text-base font-semibold text-white hover:text-[#339994] transition-colors">al-aria@gmail.com</h1>
+                </a>
                 {/* Contact */}
-                <div className="flex gap-2 w-fit items-center">
+                <a href="tel:+8809677666888" className="flex gap-2 w-fit items-center hover:text-[#339994] transition-colors">
                   <PhoneIcon size={20} color="#ffffff" />
-                  <span className="text-base font-semibold text-white">+8809677666888</span>
-                </div>
+                  <span className="text-base font-semibold text-white hover:text-[#339994] transition-colors">+8809677666888</span>
+                </a>
               </div>
             </div>
           </div>

@@ -21,7 +21,7 @@ export default async function Nav() {
   return (
     <div className="sticky top-0 inset-x-0 z-50">
 
-      <div className="hidden small:flex items-center justify-between px-4 bg-slate-800">
+      <div className="hidden small:flex items-center justify-between px-4 bg-slate-800 font-nunito">
         <div className="flex items-center gap-6">
           <LocalizedClientLink
             href={"/terms-of-service"}
@@ -47,7 +47,7 @@ export default async function Nav() {
           <div className="flex gap-5 w-fit items-center">
             {/* link icon  */}
             <div className="flex gap-4 items-center py-1">
-              <LocalizedClientLink
+              <a
                 href={socialMediaLinks.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -55,8 +55,8 @@ export default async function Nav() {
                 aria-label="Visit our Facebook page"
               >
                 <FacebookIcon size={16} color="white" />
-              </LocalizedClientLink>
-              <LocalizedClientLink
+              </a>
+              <a
                 href={socialMediaLinks.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -64,8 +64,8 @@ export default async function Nav() {
                 aria-label="Visit our Instagram page"
               >
                 <InstagramIcon size={16} color="white" />
-              </LocalizedClientLink>
-              <LocalizedClientLink
+              </a>
+              <a
                 href={socialMediaLinks.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -73,19 +73,19 @@ export default async function Nav() {
                 aria-label="Visit our YouTube channel"
               >
                 <YouTubeIcon size={20} color="white" />
-              </LocalizedClientLink>
+              </a>
             </div>
             <div className="text-white text-2xl">|</div>
             {/* mail  */}
-            <div className="flex gap-2 items-center">
+            <a href="mailto:al-aria@gmail.com" className="flex gap-2 items-center hover:text-[#339994] transition-colors">
               <MailIcon size={20} color="#ffffff" />
-              <h1 className="text-base font-semibold text-white">al-aria@gmail.com</h1>
-            </div>
+              <h1 className="text-base font-semibold text-white hover:text-[#339994] transition-colors">al-aria@gmail.com</h1>
+            </a>
             {/* Contact */}
-            <div className="flex gap-2 w-fit items-center">
+            <a href="tel:+8809677666888" className="flex gap-2 w-fit items-center hover:text-[#339994] transition-colors">
               <PhoneIcon size={20} color="#ffffff" />
-              <span className="text-base font-semibold text-white">+8809677666888</span>
-            </div>
+              <span className="text-base font-semibold text-white hover:text-[#339994] transition-colors">+8809677666888</span>
+            </a>
           </div>
         </div>
       </div>
