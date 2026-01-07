@@ -34,7 +34,7 @@ export default function LoadingButton({
       variant={variant}
       size={size}
       disabled={isDisabled}
-      className="btn-unified w-full rounded-none"
+      className="btn-unified-b w-full rounded-none py-3 col-span-2"
     >
       <span className="relative z-10">
         {isLoading ? (

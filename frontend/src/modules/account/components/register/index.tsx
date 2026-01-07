@@ -68,7 +68,7 @@ const Register = ({ setCurrentView }: Props) => {
           />
         </div>
         <ErrorMessage error={message} data-testid="register-error" />
-        <span className="text-center text-ui-fg-base text-small-regular mt-6">
+        <span className="text-center text-ui-fg-base text-small-regular my-6">
           By creating an account, you agree to ZAHAN Store&apos;s{" "}
           <LocalizedClientLink
             href="/content/privacy-policy"
@@ -85,8 +85,8 @@ const Register = ({ setCurrentView }: Props) => {
           </LocalizedClientLink>
           .
         </span>
-        <SubmitButton className="btn-unified border-none w-full inline-block px-4 py-2 text-grey-90 font-semibold text-base text-center relative z-10 rounded-none mt-3" data-testid="register-button">
-          <span className="relative z-10">Join</span>
+        <SubmitButton className="" data-testid="register-button">
+          <span className="relative z-10">JOIN</span>
         </SubmitButton>
       </form>
       <span className="text-center text-ui-fg-base text-small-regular mt-6">

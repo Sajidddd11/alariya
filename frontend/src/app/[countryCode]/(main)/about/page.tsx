@@ -49,7 +49,7 @@ export default function AboutPage() {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="bg-[#339994]/10 text-slate-800 py-20">
+      <section className="bg-[#EBF4F4] text-slate-800 py-20">
         <div className="content-container">
           <div className="max-w-3xl mx-auto text-center animate-fade-in-up">
             <h1 className="text-2xl small:text-4xl font-bold text-[#339994] mb-6">ABOUT AL-ARIA PERFUME GALLERY</h1>
@@ -61,7 +61,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story Section */}
-      <section className="py-16 small:py-24 bg-[#339994]/5">
+      <section className="py-16 small:py-24 bg-[#EBF4F4]/50">
         <div className="content-container">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 small:grid-cols-2 gap-12 items-center">
@@ -89,7 +89,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-16 small:py-24 bg-[#339994]/10">
+      <section className="py-16 small:py-24 bg-[#EBF4F4]">
         <div className="content-container">
           <h2 className="text-3xl small:text-4xl font-bold text-[#339994] text-center font-quentin mb-8">Our Mission and Vision</h2>
           <div className="grid grid-cols-1 small:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -128,7 +128,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section */}
-      <section className="py-16 small:py-24 bg-[#339994]/5">
+      <section className="py-16 small:py-24 bg-[#EBF4F4]/50">
         <div className="content-container">
           <h2 className="text-3xl small:text-4xl font-bold text-[#339994] text-center font-quentin mb-8">Our Core Values</h2>
           {/* Features Grid */}

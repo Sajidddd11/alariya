@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
     return (
-        <div className="content-container py-16 bg-[#339994]/10">
-            <div className="max-w-6xl mx-auto">
+        <div className="content-container py-16 bg-[#EBF4F4]/50">
+            <div className="mx-auto">
                 <h1 className="text-3xl font-bold mb-8 text-[#339994] text-center">CONTACT US</h1>
                 <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
                     Have a question or concern? We&apos;re here to help! Reach out to us through any of the methods below, and our team will get back to you as soon as possible.
@@ -99,7 +99,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* Business Hours */}
-                        <div className="bg-[#339994]/10 p-6 rounded-none">
+                        <div className="bg-[#339994]/5 p-6 rounded-none">
                             <h3 className="font-semibold text-gray-900 mb-4">BUSINESS HOURS</h3>
                             <div className="space-y-2 text-sm">
                                 <div className="flex justify-between">
@@ -118,7 +118,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Contact Form */}
-                    <div className="bg-[#339994]/10 h-full p-8 rounded-none">
+                    <div className="bg-[#339994]/5 h-full p-8 rounded-none">
                         <h2 className="text-2xl text-[#339994] font-semibold mb-6">SEND US MESSAGE</h2>
                         <form className="space-y-4">
                             <div>
@@ -130,7 +130,7 @@ export default function ContactPage() {
                                     id="name"
                                     name="name"
                                     required
-                                    className="w-full px-4 py-2 bg-[#339994]/5 border border-gray-400 rounded-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    className="w-full px-4 py-2 placeholder-black/40 bg-[#F5F9FA] text-black rounded-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                     placeholder="Your name"
                                 />
                             </div>
@@ -144,7 +144,7 @@ export default function ContactPage() {
                                     id="email"
                                     name="email"
                                     required
-                                    className="w-full px-4 py-2 bg-[#339994]/5 border border-gray-400 rounded-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    className="w-full px-4 py-2 placeholder-black/40 bg-[#F5F9FA] text-black rounded-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                     placeholder="your.email@example.com"
                                 />
                             </div>
@@ -157,7 +157,7 @@ export default function ContactPage() {
                                     type="tel"
                                     id="phone"
                                     name="phone"
-                                    className="w-full px-4 py-2 bg-[#339994]/5 border border-gray-400 rounded-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    className="w-full px-4 py-2 placeholder-black/40 bg-[#F5F9FA] text-black rounded-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                     placeholder="+880 1XXX-XXXXXX"
                                 />
                             </div>
@@ -171,7 +171,7 @@ export default function ContactPage() {
                                     id="subject"
                                     name="subject"
                                     required
-                                    className="w-full px-4 py-2 bg-[#339994]/5 border border-gray-400 rounded-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    className="w-full px-4 py-2 placeholder-black/40 bg-[#F5F9FA] text-black rounded-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                     placeholder="How can we help?"
                                 />
                             </div>
@@ -185,7 +185,7 @@ export default function ContactPage() {
                                     name="message"
                                     required
                                     rows={5}
-                                    className="w-full px-4 py-2 bg-[#339994]/5 border border-gray-400 rounded-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                                    className="w-full px-4 py-2 placeholder-black/40 bg-[#F5F9FA] text-black rounded-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                                     placeholder="Tell us more about your inquiry..."
                                 />
                             </div>

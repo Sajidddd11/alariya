@@ -23,7 +23,7 @@ const SignInPrompt = () => {
         {/* Right side - CTA Button */}
         <LocalizedClientLink
           href="/account"
-          className="text-center wave-btn inline-block px-6 small:px-8 py-2 border border-black text-grey-90 font-semibold relative z-10 transition-all duration-150 hover:text-white transform hover:scale-105 active:scale-95"
+          className="btn-unified-b px-10 py-3"
         >
           <span className="relative z-10">SIGN IN</span>
         </LocalizedClientLink>

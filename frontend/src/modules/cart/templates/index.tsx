@@ -30,7 +30,7 @@ const CartTemplate = ({
               <ItemsTemplate cart={cart} />
             </div>
             <div className="relative order-2">
-              <div className="flex flex-col gap-y-4 small:gap-y-6 sticky top-20 small:top-24 bg-white rounded-none border border-slate-200 p-4 small:p-6">
+              <div className="flex flex-col gap-y-4 small:gap-y-6 sticky top-20 small:top-24 bg-[#F5FAFA] rounded-none border border-slate-200 p-4 small:p-6">
                 {cart && cart.region && (
                   <Summary cart={cart as any} />
                 )}

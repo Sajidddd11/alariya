@@ -22,7 +22,7 @@ const Login = ({ setCurrentView }: Props) => {
         Sign in to access an enhanced perfume experience.
       </p>
       <form className="w-full" action={formAction}>
-        <div className="flex flex-col w-full gap-y-2">
+        <div className="flex flex-col w-full gap-y-2 mb-4">
           <Input
             label="Email"
             name="email"
@@ -42,7 +42,7 @@ const Login = ({ setCurrentView }: Props) => {
           />
         </div>
         <ErrorMessage error={message} data-testid="login-error-message" />
-        <SubmitButton data-testid="sign-in-button" className="btn-unified border-none w-full inline-block px-4 py-2 text-grey-90 font-semibold text-base text-center relative z-10 rounded-none mt-3">
+        <SubmitButton data-testid="sign-in-button" className="">
           <span className="relative z-10">SIGN IN</span>
         </SubmitButton>
       </form>

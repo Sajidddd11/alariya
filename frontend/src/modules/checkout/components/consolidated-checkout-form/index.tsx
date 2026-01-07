@@ -288,7 +288,7 @@ export default function ConsolidatedCheckoutForm({
 
             {/* Submit Button */}
             <SubmitButton
-                className="btn-unified w-full inline-block px-4 py-2 text-grey-90 font-semibold text-base text-center relative z-10"
+                className=""
                 data-testid="submit-checkout-button"
             >
                 <span className="relative z-10">Continue to Review</span>

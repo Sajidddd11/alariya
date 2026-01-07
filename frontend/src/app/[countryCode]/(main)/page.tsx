@@ -17,7 +17,7 @@ import NewProducts from "@modules/home/components/new-products"
 export const revalidate = 300 // Revalidate every 5 minutes
 
 export const metadata: Metadata = {
-  title: "Al-Aria perfume gallery",
+  title: "Al-Aria Perfume Gallery",
   description:
     "Discover our curated collection of premium clothing and accessories. Shop the latest trends with fast shipping and secure payments.",
 }

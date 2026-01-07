@@ -109,7 +109,7 @@ const Item = ({ item, type = "full", currencyCode, renderMode = "desktop" }: Ite
   return (
     <>
       {/* Desktop/Table View */}
-      <Table.Row className="w-full bg-[#339994]/10" data-testid="product-row">
+      <Table.Row className="w-full bg-[#F5FAFA]" data-testid="product-row">
         <Table.Cell className="!pl-2 p-4 w-24">
           <LocalizedClientLink
             href={`/products/${item.product_handle}`}
