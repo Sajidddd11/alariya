@@ -12,7 +12,9 @@
     --color-brand-light: #f5f5f5;
   }
 
-  body, html, main {
+  body,
+  html,
+  main {
     margin: 0;
     padding: 0;
     background-color: #ffffff;
@@ -26,6 +28,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -37,6 +40,7 @@
       opacity: 0;
       transform: translateY(-20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -48,6 +52,7 @@
       opacity: 0;
       transform: scale(0.95);
     }
+
     to {
       opacity: 1;
       transform: scale(1);
@@ -55,9 +60,12 @@
   }
 
   @keyframes pulse-glow {
-    0%, 100% {
+
+    0%,
+    100% {
       box-shadow: 0 0 0 0 rgba(15, 23, 42, 0.1);
     }
+
     50% {
       box-shadow: 0 0 0 8px rgba(15, 23, 42, 0);
     }
@@ -68,6 +76,7 @@
       opacity: 0;
       transform: scale(0.9);
     }
+
     to {
       opacity: 1;
       transform: scale(1);
@@ -79,6 +88,7 @@
       opacity: 0;
       transform: translateX(-30px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);
@@ -90,6 +100,7 @@
       opacity: 0;
       transform: translateX(-60px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);
@@ -101,6 +112,7 @@
       opacity: 0;
       transform: translateX(30px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);
@@ -112,13 +124,16 @@
       opacity: 0;
       transform: scale(0.3);
     }
+
     50% {
       opacity: 1;
       transform: scale(1.05);
     }
+
     70% {
       transform: scale(0.9);
     }
+
     100% {
       opacity: 1;
       transform: scale(1);
@@ -129,6 +144,7 @@
     0% {
       background-position: -1000px 0;
     }
+
     100% {
       background-position: 1000px 0;
     }
@@ -139,18 +155,22 @@
       border-color: rgb(255, 0, 127);
       box-shadow: 0 0 10px rgba(255, 0, 127, 0.8), inset 0 0 10px rgba(255, 0, 127, 0.3);
     }
+
     25% {
       border-color: rgb(0, 255, 127);
       box-shadow: 0 0 10px rgba(0, 255, 127, 0.8), inset 0 0 10px rgba(0, 255, 127, 0.3);
     }
+
     50% {
       border-color: rgb(0, 127, 255);
       box-shadow: 0 0 10px rgba(0, 127, 255, 0.8), inset 0 0 10px rgba(0, 127, 255, 0.3);
     }
+
     75% {
       border-color: rgb(255, 127, 0);
       box-shadow: 0 0 10px rgba(255, 127, 0, 0.8), inset 0 0 10px rgba(255, 127, 0, 0.3);
     }
+
     100% {
       border-color: rgb(255, 0, 127);
       box-shadow: 0 0 10px rgba(255, 0, 127, 0.8), inset 0 0 10px rgba(255, 0, 127, 0.3);
@@ -161,11 +181,13 @@
     0% {
       opacity: 0;
     }
+
     100% {
       opacity: 1;
     }
   }
 }
+
 @font-face {
   font-family: "Quentin";
   src: url("/fonts/Quentin.otf") format("truetype");
@@ -173,6 +195,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @layer utilities {
   .font-quentin {
     font-family: 'Quentin', cursive;
@@ -190,8 +213,10 @@
   }
 
   .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
   .animate-fade-in-up {
@@ -341,12 +366,12 @@
     display: none;
   }
 
-  input:focus ~ label,
-  input:not(:placeholder-shown) ~ label {
+  input:focus~label,
+  input:not(:placeholder-shown)~label {
     @apply -translate-y-2 text-xsmall-regular;
   }
 
-  input:focus ~ label {
+  input:focus~label {
     @apply left-0;
   }
 
@@ -413,6 +438,7 @@
     transform: none !important;
     box-shadow: none !important;
   }
+
   /* Disabled button styles */
   button:disabled,
   button[disabled],
@@ -579,6 +605,7 @@
   .btn-unified:hover::before {
     animation: btn-unified-wave 0.2s ease-out forwards;
   }
+
   /* Unified black button style class for @medusajs/ui Button or any button element */
   .btn-unified-b {
     position: relative;
@@ -600,12 +627,13 @@
     0% {
       transform: scaleY(0);
     }
+
     100% {
       transform: scaleY(1);
     }
   }
 
-  .btn-unified > * {
+  .btn-unified>* {
     position: relative;
     z-index: 1;
   }
