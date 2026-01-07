@@ -77,12 +77,11 @@ export default async function CategoryShowcase({
 
                     {/* Button */}
                     <div>
-                      <LocalizedClientLink
-                        href="/store"
-                        className="btn-unified inline-block px-4 xsmall:px-6 small:px-8 py-1.5 xsmall:py-2 small:py-3 text-grey-90 text-xs xsmall:text-sm small:text-base font-semibold relative z-10"
+                      <div
+                        className="btn-unified inline-block px-4 xsmall:px-6 small:px-8 py-1.5 xsmall:py-2 small:py-3 text-grey-90 text-xs xsmall:text-sm small:text-base font-semibold relative z-10 cursor-pointer"
                       >
                         <span className="relative z-10">SHOP NOW</span>
-                      </LocalizedClientLink>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -116,12 +115,11 @@ export default async function CategoryShowcase({
 
                     {/* Button */}
                     <div>
-                      <LocalizedClientLink
-                        href="/store"
-                        className="btn-unified inline-block px-4 xsmall:px-6 small:px-8 py-1.5 xsmall:py-2 small:py-3 text-grey-90 text-xs xsmall:text-sm small:text-base font-semibold relative z-10"
+                      <div
+                        className="btn-unified inline-block px-4 xsmall:px-6 small:px-8 py-1.5 xsmall:py-2 small:py-3 text-grey-90 text-xs xsmall:text-sm small:text-base font-semibold relative z-10 cursor-pointer"
                       >
                         <span className="relative z-10">SHOP NOW</span>
-                      </LocalizedClientLink>
+                      </div>
                     </div>
                   </div>
                 </div>
