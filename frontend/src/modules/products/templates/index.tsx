@@ -164,8 +164,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
         <div className="content-container py-12 small:py-16">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
-              <h2 className="text-2xl small:text-3xl font-bold text-[#339994] mb-2 font-quentin">Product Details</h2>
-              <div className="w-16 h-1 bg-[#339994] mx-auto"></div>
+              <h2 className="text-2xl small:text-3xl font-bold text-[#339994] font-quentin">Product Details</h2>
             </div>
             <ProductTabs product={product} />
           </div>
