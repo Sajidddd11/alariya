@@ -1,5 +1,4 @@
 import React, { Suspense } from "react"
-
 import ImageGallery from "@modules/products/components/image-gallery"
 import ProductActions from "@modules/products/components/product-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
@@ -10,8 +9,9 @@ import SkeletonRelatedProducts from "@modules/skeletons/templates/skeleton-relat
 import ProductDescriptionSection from "@modules/products/components/product-description-section"
 import { notFound } from "next/navigation"
 import { HttpTypes } from "@medusajs/types"
-
 import ProductActionsWrapper from "./product-actions-wrapper"
+import VolumeSelector from "@modules/products/components/volume-selector"
+import BottleSelector from "@modules/products/components/bottle-selector"
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
@@ -30,109 +30,73 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
     return notFound()
   }
 
-  // Generate Schema.org structured data for SEO
-  const futureDate = new Date()
-  futureDate.setDate(futureDate.getDate() + 30)
-
-  const productSchema = {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    name: product.title,
-    image: images.map((img) => img.url),
-    description: product.description || product.title,
-    brand: {
-      "@type": "Brand",
-      name: "Our Store",
-    },
-    offers: {
-      "@type": "Offer",
-      priceCurrency: region?.currency_code?.toUpperCase() || "USD",
-      price: product.variants?.[0]?.prices?.[0]?.amount
-        ? (product.variants[0].prices[0].amount / 100).toString()
-        : "0",
-      availability: product.variants?.some(
-        (v) => !v.manage_inventory || (v.inventory_quantity || 0) > 0
-      )
-        ? "https://schema.org/InStock"
-        : "https://schema.org/OutOfStock",
-      priceValidUntil: futureDate
-        .toISOString()
-        .split("T")[0],
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.5",
-      reviewCount: "24",
-    },
-    sku: product.sku || product.id,
-    weight: product.weight
-      ? {
-        "@type": "QuantitativeValue",
-        value: product.weight,
-        unitCode: "GRM",
-      }
-      : undefined,
-    material: product.material || undefined,
-  }
-
-  // Filter out undefined values
-  const cleanSchema = JSON.parse(JSON.stringify(productSchema))
-
   return (
     <>
-      {/* Schema.org Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(cleanSchema) }}
-      />
-
-      <div className="w-full min-h-screen bg-white">
-        <div className="content-container py-2 small:py-2 medium:py-3">
-          {/* Breadcrumb Navigation */}
-          <nav className="mb-2 small:mb-3 flex items-center gap-2 text-xs small:text-sm text-slate-600 overflow-x-auto pb-2">
-            <a href="/" className="hover:text-slate-900 transition-colors whitespace-nowrap">
-              Home
-            </a>
-            <span className="text-slate-400">/</span>
-            <a href="/store" className="hover:text-slate-900 transition-colors whitespace-nowrap">
-              Store
-            </a>
+      {/* Breadcrumb Bar */}
+      <div className="bg-[#EBF4F4] border-b border-[#339994]/20">
+        <div className="content-container py-4">
+          <nav className="flex items-center gap-2 text-sm text-slate-600">
+            <a href="/" className="hover:text-[#339994] transition-colors">Home</a>
+            <span>/</span>
+            <a href="/store" className="hover:text-[#339994] transition-colors">Store</a>
             {product.collection && (
               <>
-                <span className="text-slate-400">/</span>
-                <a
-                  href={`/collections/${product.collection.handle}`}
-                  className="hover:text-slate-900 transition-colors whitespace-nowrap"
-                >
+                <span>/</span>
+                <a href={`/collections/${product.collection.handle}`} className="hover:text-[#339994] transition-colors">
                   {product.collection.title}
                 </a>
               </>
             )}
-            <span className="text-slate-400">/</span>
-            <span className="text-slate-900 font-medium whitespace-nowrap truncate">{product.title}</span>
+            <span>/</span>
+            <span className="text-[#339994] font-medium">{product.title}</span>
           </nav>
+        </div>
+      </div>
 
-          {/* Product Container */}
-          <div
-            className="grid grid-cols-1 gap-3 w-full small:w-[80%] mx-auto small:grid-cols-2 mb-6 small:mb-12 medium:mb-16"
-            data-testid="product-container"
-          >
-            {/* Product Images - Full width on mobile, 2/3 on desktop */}
-            <div className="flex flex-col gap-4">
-              <div className="">
-                <ImageGallery images={images} />
+      {/* Main Product Section */}
+      <section className="bg-white">
+        <div className="content-container py-4 small:py-6">
+          <div className="grid grid-cols-1 large:grid-cols-12 gap-6 small:gap-8">
+
+            {/* Left Column - Image Gallery + Short Description (Spans 7 columns) */}
+            <div className="large:col-span-7 space-y-4">
+              {/* Image Gallery */}
+              <div>
+                <div className="bg-[#EBF4F4]/30 p-4 small:p-6">
+                  <ImageGallery images={images} />
+                </div>
+              </div>
+
+              {/* Short Description */}
+              <div className="bg-white border border-gray-200 p-4">
+                <h3 className="text-base font-semibold text-[#339994] mb-3">About This Fragrance</h3>
+                <ProductDescriptionSection product={product} />
               </div>
             </div>
 
-            {/* Product Info and Actions */}
-            <div className="flex flex-col gap-2 ">
-              {/* Header Info Section */}
-              <div className="flex flex-col gap-2 px-4">
+            {/* Right Column - Product Details (Spans 5 columns) */}
+            <div className="large:col-span-5 space-y-4">
+
+              {/* Product Title & Price */}
+              <div className="border-b border-gray-200 pb-4">
                 <ProductInfo product={product} />
               </div>
 
-              {/* Actions Section */}
-              <div className="flex flex-col gap-3 small:gap-4 bg-white py-2 px-4">
+              {/* Volume & Bottle Selection - Only show if product has these options */}
+              <div className="border-b border-gray-200 pb-4">
+                {/* Check if product has Volume option */}
+                {product.options?.some(opt => opt.title?.toLowerCase() === 'volume') && (
+                  <VolumeSelector />
+                )}
+
+                {/* Check if product has Bottle option */}
+                {product.options?.some(opt => opt.title?.toLowerCase() === 'bottle' || opt.title?.toLowerCase() === 'bottle design') && (
+                  <BottleSelector />
+                )}
+              </div>
+
+              {/* Add to Cart Section - Priority Position */}
+              <div className="bg-[#EBF4F4]/30 p-4 border-2 border-[#339994]/20">
                 <ProductOnboardingCta />
                 <Suspense
                   fallback={
@@ -145,37 +109,84 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
                 >
                   <ProductActionsWrapper id={product.id} region={region} />
                 </Suspense>
+              </div>
 
-                {/* Product Description Section - Under Action Buttons */}
-                <ProductDescriptionSection product={product} />
+              {/* Product Highlights - Compact Version */}
+              <div className="bg-white border border-gray-200 p-4 space-y-2">
+                <h3 className="text-sm font-semibold text-[#339994] mb-2">Product Highlights</h3>
+
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-[#339994] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <p className="text-sm text-gray-700"><span className="font-medium">100% Authentic</span> - Genuine product</p>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-[#339994] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <p className="text-sm text-gray-700"><span className="font-medium">Long-Lasting</span> - 8-12 hours</p>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-[#339994] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <p className="text-sm text-gray-700"><span className="font-medium">Fast Delivery</span> - Across Bangladesh</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Trust Badges - Compact */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="text-center p-3 bg-gray-50 border border-gray-200">
+                  <svg className="w-6 h-6 text-[#339994] mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                  <p className="text-xs font-semibold text-gray-700">Secure Payment</p>
+                </div>
+                <div className="text-center p-3 bg-gray-50 border border-gray-200">
+                  <svg className="w-6 h-6 text-[#339994] mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6" />
+                  </svg>
+                  <p className="text-xs font-semibold text-gray-700">Easy Returns</p>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Description and Tabs - Full Width */}
-          <div className="border-t-2 border-slate-200 pt-8 small:pt-12 medium:pt-16">
+      {/* Detailed Description Section */}
+      <section className="bg-[#EBF4F4]/30 border-y border-[#339994]/20">
+        <div className="content-container py-12 small:py-16">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl small:text-3xl font-bold text-[#339994] mb-2 font-quentin">Product Details</h2>
+              <div className="w-16 h-1 bg-[#339994] mx-auto"></div>
+            </div>
             <ProductTabs product={product} />
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Related Products Section */}
-      <div className="w-full bg-gradient-to-b from-slate-50 via-white to-slate-50 py-16 small:py-20 border-t border-slate-200">
-        <div
-          className="content-container"
-          data-testid="related-products-container"
-        >
-          <div className="mb-10">
-            <h2 className="text-2xl small:text-3xl font-bold text-slate-900 mb-2">
-              You May Also Like
-            </h2>
-            <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-transparent rounded-full"></div>
+      {/* Related Products */}
+      <section className="bg-[#EBF4F4]/50 border-t border-[#339994]/20">
+        <div className="content-container py-12 small:py-16">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl small:text-3xl font-bold text-[#339994] mb-3">You May Also Like</h2>
+            <div className="w-20 h-1 bg-[#339994] mx-auto mb-4"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Explore more captivating fragrances from our exclusive collection
+            </p>
           </div>
           <Suspense fallback={<SkeletonRelatedProducts />}>
             <RelatedProducts product={product} countryCode={countryCode} />
           </Suspense>
         </div>
-      </div>
+      </section>
     </>
   )
 }

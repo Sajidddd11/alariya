@@ -22,6 +22,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    unoptimized: true, // Bypass private IP checks for S3 images
     qualities: [50, 75, 85, 90, 100],
     remotePatterns: [
       {
@@ -51,7 +52,7 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "i.ibb.co",
-      },{
+      }, {
         protocol: "https",
         hostname: "ibb.co.com",
       },
@@ -64,14 +65,26 @@ const nextConfig = {
         hostname: "*.supabase.co",
         pathname: "/storage/v1/object/public/**",
       },
+      {
+        protocol: "https",
+        hostname: "zahan-store-files.s3.ap-south-1.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.s3.ap-south-1.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.s3.amazonaws.com",
+      },
       ...(S3_HOSTNAME && S3_PATHNAME
         ? [
-            {
-              protocol: "https",
-              hostname: S3_HOSTNAME,
-              pathname: S3_PATHNAME,
-            },
-          ]
+          {
+            protocol: "https",
+            hostname: S3_HOSTNAME,
+            pathname: S3_PATHNAME,
+          },
+        ]
         : []),
     ],
   },
