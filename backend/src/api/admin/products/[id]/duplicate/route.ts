@@ -39,6 +39,7 @@ export async function POST(
                 "variants.options.*",
                 "images.*",
                 "tags.*",
+                "sales_channels.*",
             ],
             filters: { id: productId },
         })
@@ -80,6 +81,13 @@ export async function POST(
         // Add collection if exists
         if (originalProduct.collection_id) {
             newProductData.collection_id = originalProduct.collection_id
+        }
+
+        // Add sales channels if exists
+        if (originalProduct.sales_channels && originalProduct.sales_channels.length > 0) {
+            newProductData.sales_channels = originalProduct.sales_channels.map((channel: any) => ({
+                id: channel.id
+            }))
         }
 
         // Add tags if exists
