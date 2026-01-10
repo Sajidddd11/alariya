@@ -227,8 +227,36 @@ export default function ProductActions({
 
         {/* Price and stock Display */}
         <div className="flex gap-4 items-center">
-          <div className=" py-1">
-            <ProductPrice product={product} variant={selectedVariant} />
+          <div className="py-1">
+            {selectedVariant ? (
+              <ProductPrice product={product} variant={selectedVariant} />
+            ) : (
+              // Show message when variant not fully selected
+              <div className="text-gray-600">
+                {(() => {
+                  const unselectedOptions = (product.options || [])
+                    .filter(opt => {
+                      // Skip color option if already checked
+                      if (colorOption && opt.id === colorOption.id) {
+                        return false
+                      }
+                      return !options[opt.id]
+                    })
+                    .map(opt => opt.title)
+
+                  if (unselectedOptions.length > 0) {
+                    return `Please select ${unselectedOptions.join(' and ')}`
+                  }
+
+                  // Also check concentration if it exists
+                  if (product.metadata?.concentrations && !concentration) {
+                    return `Please select Concentration`
+                  }
+
+                  return "Please select all options"
+                })()}
+              </div>
+            )}
           </div>
           <div>
             {/* Stock Status */}
