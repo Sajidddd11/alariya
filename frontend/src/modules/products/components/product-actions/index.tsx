@@ -136,6 +136,7 @@ export default function ProductActions({
       variantId: selectedVariant.id,
       quantity: quantity,
       countryCode,
+      metadata: concentration ? { concentration } : undefined,
     })
 
     setIsAdding(false)
@@ -154,6 +155,7 @@ export default function ProductActions({
       variantId: selectedVariant.id,
       quantity: quantity,
       countryCode,
+      metadata: concentration ? { concentration } : undefined,
     })
 
     setIsAdding(false)

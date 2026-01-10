@@ -67,7 +67,7 @@ const Item = ({ item, type = "full", currencyCode, renderMode = "desktop" }: Ite
             >
               {item.product_title}
             </Text>
-            <LineItemOptions variant={item.variant} data-testid="product-variant" />
+            <LineItemOptions variant={item.variant} metadata={item.metadata as Record<string, any> | undefined} data-testid="product-variant" />
 
             <div className="mt-2">
               <LineItemUnitPrice
@@ -133,7 +133,7 @@ const Item = ({ item, type = "full", currencyCode, renderMode = "desktop" }: Ite
           >
             {item.product_title}
           </Text>
-          <LineItemOptions variant={item.variant} data-testid="product-variant" />
+          <LineItemOptions variant={item.variant} metadata={item.metadata as Record<string, any> | undefined} data-testid="product-variant" />
         </Table.Cell>
 
         {type === "full" && (
