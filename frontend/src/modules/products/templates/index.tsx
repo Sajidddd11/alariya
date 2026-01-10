@@ -10,8 +10,6 @@ import ProductDescriptionSection from "@modules/products/components/product-desc
 import { notFound } from "next/navigation"
 import { HttpTypes } from "@medusajs/types"
 import ProductActionsWrapper from "./product-actions-wrapper"
-import VolumeSelector from "@modules/products/components/volume-selector"
-import BottleSelector from "@modules/products/components/bottle-selector"
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
@@ -80,19 +78,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
               {/* Product Title & Price */}
               <div className="border-b border-gray-200 pb-4">
                 <ProductInfo product={product} />
-              </div>
-
-              {/* Volume & Bottle Selection - Only show if product has these options */}
-              <div className="border-b border-gray-200 pb-4">
-                {/* Check if product has Volume option */}
-                {product.options?.some(opt => opt.title?.toLowerCase() === 'volume') && (
-                  <VolumeSelector />
-                )}
-
-                {/* Check if product has Bottle option */}
-                {product.options?.some(opt => opt.title?.toLowerCase() === 'bottle' || opt.title?.toLowerCase() === 'bottle design') && (
-                  <BottleSelector />
-                )}
               </div>
 
               {/* Add to Cart Section - Priority Position */}

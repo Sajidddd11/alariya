@@ -5,9 +5,10 @@ import { useIntersection } from "@lib/hooks/use-in-view"
 import { HttpTypes } from "@medusajs/types"
 import { Button } from "@medusajs/ui"
 import Divider from "@modules/common/components/divider"
-import OptionSelect from "@modules/products/components/product-actions/option-select"
+import OptionRenderer from "@modules/products/components/option-renderer"
 import QuantitySelector from "@modules/products/components/quantity-selector"
 import ColorSwatchSelector from "@modules/products/components/color-swatch-selector"
+import ConcentrationSelector from "@modules/products/components/concentration-selector"
 import LoadingButton from "@modules/common/components/loading-button"
 import { isEqual } from "lodash"
 import { useParams, usePathname, useSearchParams } from "next/navigation"
@@ -40,6 +41,7 @@ export default function ProductActions({
   const searchParams = useSearchParams()
 
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
+  const [concentration, setConcentration] = useState<string | undefined>()
   const [quantity, setQuantity] = useState(1)
   const [isAdding, setIsAdding] = useState(false)
   const countryCode = useParams().countryCode as string
@@ -204,13 +206,17 @@ export default function ProductActions({
                 }
                 return (
                   <div key={option.id}>
-                    <OptionSelect
-                      option={option}
-                      current={options[option.id]}
-                      updateOption={setOptionValue}
-                      title={option.title ?? ""}
-                      data-testid="product-options"
-                      disabled={!!disabled || isAdding}
+                    <OptionRenderer
+                      option={{
+                        id: option.id,
+                        title: option.title || "",
+                        values: (option.values || []).map(v => ({
+                          id: v.id,
+                          value: v.value
+                        }))
+                      }}
+                      selectedValue={options[option.id]}
+                      onValueChange={setOptionValue}
                     />
                   </div>
                 )
@@ -242,6 +248,15 @@ export default function ProductActions({
             )}
           </div>
         </div>
+
+        {/* Concentration from Metadata */}
+        {product.metadata?.concentrations && (
+          <ConcentrationSelector
+            concentrations={product.metadata.concentrations as string[]}
+            selectedConcentration={concentration}
+            onConcentrationChange={setConcentration}
+          />
+        )}
 
         {/* Quantity selector , ADD TO CART, buy now  */}
         <div className="flex flex-col gap-3">
