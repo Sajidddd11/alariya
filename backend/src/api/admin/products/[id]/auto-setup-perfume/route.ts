@@ -8,11 +8,7 @@ export async function POST(
     const productId = req.params.id
     const { price_per_ml, bottle_prices } = req.body as {
         price_per_ml: number
-        bottle_prices: {
-            "Type 1": number
-            "Type 2": number
-            "Type 3": number
-        }
+        bottle_prices: Record<string, number>
     }
 
     try {
@@ -140,7 +136,7 @@ export async function POST(
                                 {
                                     product_id: productId,
                                     title: "Bottle",
-                                    values: ["Type 1", "Type 2", "Type 3"],
+                                    values: Object.keys(bottle_prices),
                                 },
                             ],
                         },
@@ -162,9 +158,9 @@ export async function POST(
                         { value: "100mL", ml: 100 },
                     ]
 
-                    const bottles = ["Type 1", "Type 2", "Type 3"]
+                    const bottles = Object.keys(bottle_prices)
 
-                    // Create 12 variants (4 volumes × 3 bottles)
+                    // Create variants (4 volumes × number of bottles)
                     const variantsToCreate: any[] = []
                     let variantCounter = 0
 

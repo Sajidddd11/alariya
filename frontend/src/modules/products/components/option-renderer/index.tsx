@@ -46,23 +46,28 @@ const OptionRenderer: React.FC<OptionRendererProps> = ({
         )
     }
 
-    // BOTTLE: Image grid layout (Type 1, Type 2, Type 3)
+    // BOTTLE: Image grid layout (dynamically handles any number of bottle types)
     if (optionTitle === "bottle" || optionTitle === "bottle design") {
-        // Map of bottle type to image URL (you can update these URLs)
-        const bottleImages: Record<string, string> = {
-            "Type 1": "/bottle1.jpg",
-            "Type 2": "/bottle2.jpg",
-            "Type 3": "/bottle3.jpg",
-        }
-
         return (
             <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                     {option.title}
                 </label>
-                <div className="grid grid-cols-3 gap-2">
-                    {option.values.map((val) => {
-                        const imageUrl = bottleImages[val.value]
+                <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${option.values.length}, 1fr)` }}>
+                    {option.values.map((val, index) => {
+                        // Try to map bottle type to image
+                        // Type 1 -> bottle1.jpg, Type 2 -> bottle2.jpg, etc.
+                        let imageUrl: string | null = null
+
+                        // Extract number from bottle name (e.g., "Type 1" -> 1)
+                        const typeMatch = val.value.match(/Type\s*(\d+)/i)
+                        if (typeMatch) {
+                            const typeNum = typeMatch[1]
+                            imageUrl = `/bottle${typeNum}.jpg`
+                        } else {
+                            // For custom names, use index + 1
+                            imageUrl = `/bottle${index + 1}.jpg`
+                        }
 
                         return (
                             <button
@@ -73,45 +78,35 @@ const OptionRenderer: React.FC<OptionRendererProps> = ({
                                     : "border-gray-200 hover:border-gray-300"
                                     }`}
                             >
-                                {/* Bottle image or placeholder */}
-                                <div className="aspect-square bg-gray-100 flex items-center justify-center overflow-hidden">
-                                    {imageUrl ? (
-                                        // eslint-disable-next-line @next/next/no-img-element
-                                        <img
-                                            src={imageUrl}
-                                            alt={val.value}
-                                            className="w-full h-full object-contain"
-                                            onError={(e) => {
-                                                // Fallback to SVG if image fails to load
-                                                e.currentTarget.style.display = 'none'
-                                                const parent = e.currentTarget.parentElement
-                                                if (parent) {
-                                                    parent.innerHTML = `
-                            <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                            </svg>
-                          `
-                                                }
-                                            }}
-                                        />
-                                    ) : (
-                                        // SVG placeholder if no image URL
-                                        <svg
-                                            className="w-12 h-12 text-gray-400"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={1.5}
-                                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                                            />
-                                        </svg>
-                                    )}
+                                {/* Bottle image or SVG placeholder */}
+                                <div className="w-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                                    <img
+                                        src={imageUrl}
+                                        alt={val.value}
+                                        className="w-full h-auto object-contain"
+                                        onError={(e) => {
+                                            // Show SVG on error
+                                            const img = e.currentTarget
+                                            const parent = img.parentElement
+                                            if (parent) {
+                                                img.style.display = 'none'
+                                                const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+                                                svg.setAttribute("class", "w-12 h-12 text-gray-400 mx-auto")
+                                                svg.setAttribute("fill", "none")
+                                                svg.setAttribute("stroke", "currentColor")
+                                                svg.setAttribute("viewBox", "0 0 24 24")
+                                                const path = document.createElementNS("http://www.w3.org/2000/svg", "path")
+                                                path.setAttribute("stroke-linecap", "round")
+                                                path.setAttribute("stroke-linejoin", "round")
+                                                path.setAttribute("stroke-width", "1.5")
+                                                path.setAttribute("d", "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z")
+                                                svg.appendChild(path)
+                                                parent.appendChild(svg)
+                                            }
+                                        }}
+                                    />
                                 </div>
-                                <p className="text-xs text-center mt-1 font-medium">{val.value}</p>
+                                <p className="text-xs text-center mt-1 font-medium truncate">{val.value}</p>
                                 {selectedValue === val.value && (
                                     <div className="absolute top-1 right-1 w-4 h-4 bg-[#339994] rounded-full flex items-center justify-center">
                                         <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">

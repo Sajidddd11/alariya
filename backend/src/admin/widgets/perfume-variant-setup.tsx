@@ -1,15 +1,45 @@
 import { defineWidgetConfig } from "@medusajs/admin-sdk"
 import { Container, Button, Heading, Input, Label, toast } from "@medusajs/ui"
 import { useState } from "react"
+import { Trash, Plus } from "@medusajs/icons"
+
+type BottlePrice = {
+    id: string
+    name: string
+    price: string
+}
 
 const PerfumeVariantSetupWidget = ({ data }: { data: any }) => {
     const [isProcessing, setIsProcessing] = useState(false)
     const [pricePerMl, setPricePerMl] = useState("")
-    const [bottle1Price, setBottle1Price] = useState("")
-    const [bottle2Price, setBottle2Price] = useState("")
-    const [bottle3Price, setBottle3Price] = useState("")
+    const [bottles, setBottles] = useState<BottlePrice[]>([
+        { id: "1", name: "Type 1", price: "" },
+        { id: "2", name: "Type 2", price: "" },
+        { id: "3", name: "Type 3", price: "" },
+    ])
 
     const productId = data?.id
+
+    const addBottle = () => {
+        const newId = (bottles.length + 1).toString()
+        setBottles([...bottles, { id: newId, name: `Type ${newId}`, price: "" }])
+    }
+
+    const removeBottle = (id: string) => {
+        if (bottles.length <= 1) {
+            toast.error("Error", {
+                description: "At least one bottle type is required",
+            })
+            return
+        }
+        setBottles(bottles.filter(b => b.id !== id))
+    }
+
+    const updateBottle = (id: string, field: 'name' | 'price', value: string) => {
+        setBottles(bottles.map(b =>
+            b.id === id ? { ...b, [field]: value } : b
+        ))
+    }
 
     const handleAutoSetup = async () => {
         if (!productId) {
@@ -20,23 +50,40 @@ const PerfumeVariantSetupWidget = ({ data }: { data: any }) => {
         }
 
         // Validate inputs
-        if (!pricePerMl || !bottle1Price || !bottle2Price || !bottle3Price) {
+        if (!pricePerMl) {
             toast.error("Error", {
-                description: "Please fill in all fields",
+                description: "Please enter price per mL",
+            })
+            return
+        }
+
+        const invalidBottles = bottles.filter(b => !b.name || !b.price)
+        if (invalidBottles.length > 0) {
+            toast.error("Error", {
+                description: "Please fill in all bottle names and prices",
             })
             return
         }
 
         const pricePerMlNum = parseFloat(pricePerMl)
-        const bottle1Num = parseFloat(bottle1Price)
-        const bottle2Num = parseFloat(bottle2Price)
-        const bottle3Num = parseFloat(bottle3Price)
-
-        if (isNaN(pricePerMlNum) || isNaN(bottle1Num) || isNaN(bottle2Num) || isNaN(bottle3Num)) {
+        if (isNaN(pricePerMlNum)) {
             toast.error("Error", {
-                description: "Please enter valid numbers",
+                description: "Please enter valid price per mL",
             })
             return
+        }
+
+        // Build bottle prices object
+        const bottlePrices: Record<string, number> = {}
+        for (const bottle of bottles) {
+            const price = parseFloat(bottle.price)
+            if (isNaN(price)) {
+                toast.error("Error", {
+                    description: `Invalid price for ${bottle.name}`,
+                })
+                return
+            }
+            bottlePrices[bottle.name] = price
         }
 
         setIsProcessing(true)
@@ -50,11 +97,7 @@ const PerfumeVariantSetupWidget = ({ data }: { data: any }) => {
                 credentials: "include",
                 body: JSON.stringify({
                     price_per_ml: pricePerMlNum,
-                    bottle_prices: {
-                        "Type 1": bottle1Num,
-                        "Type 2": bottle2Num,
-                        "Type 3": bottle3Num,
-                    },
+                    bottle_prices: bottlePrices,
                 }),
             })
 
@@ -65,8 +108,9 @@ const PerfumeVariantSetupWidget = ({ data }: { data: any }) => {
 
             await response.json()
 
+            const variantCount = 4 * bottles.length // 4 volumes × bottle count
             toast.success("Setup Started!", {
-                description: "Creating 60 variants in background. Refreshing in 8 seconds...",
+                description: `Creating ${variantCount} variants in background. Refreshing in 8 seconds...`,
             })
 
             // Auto-refresh after 8 seconds to show results
@@ -102,46 +146,62 @@ const PerfumeVariantSetupWidget = ({ data }: { data: any }) => {
                 </div>
 
                 <div className="space-y-2">
-                    <Label className="text-sm font-semibold">Bottle Prices (BDT)</Label>
-
-                    <div>
-                        <Label htmlFor="bottle1" className="text-xs text-ui-fg-subtle mb-1">Type 1</Label>
-                        <Input
-                            id="bottle1"
-                            type="number"
-                            step="0.01"
-                            placeholder="50.00"
-                            value={bottle1Price}
-                            onChange={(e) => setBottle1Price(e.target.value)}
+                    <div className="flex items-center justify-between">
+                        <Label className="text-sm font-semibold">Bottle Types & Prices (BDT)</Label>
+                        <Button
+                            type="button"
+                            variant="transparent"
+                            size="small"
+                            onClick={addBottle}
                             disabled={isProcessing}
-                        />
+                        >
+                            <Plus className="w-4 h-4" />
+                            Add Bottle
+                        </Button>
                     </div>
 
-                    <div>
-                        <Label htmlFor="bottle2" className="text-xs text-ui-fg-subtle mb-1">Type 2</Label>
-                        <Input
-                            id="bottle2"
-                            type="number"
-                            step="0.01"
-                            placeholder="75.00"
-                            value={bottle2Price}
-                            onChange={(e) => setBottle2Price(e.target.value)}
-                            disabled={isProcessing}
-                        />
-                    </div>
-
-                    <div>
-                        <Label htmlFor="bottle3" className="text-xs text-ui-fg-subtle mb-1">Type 3</Label>
-                        <Input
-                            id="bottle3"
-                            type="number"
-                            step="0.01"
-                            placeholder="100.00"
-                            value={bottle3Price}
-                            onChange={(e) => setBottle3Price(e.target.value)}
-                            disabled={isProcessing}
-                        />
-                    </div>
+                    {bottles.map((bottle) => (
+                        <div key={bottle.id} className="flex gap-2 items-start">
+                            <div className="flex-1">
+                                <Label htmlFor={`bottle-name-${bottle.id}`} className="text-xs text-ui-fg-subtle mb-1">
+                                    Bottle Name
+                                </Label>
+                                <Input
+                                    id={`bottle-name-${bottle.id}`}
+                                    type="text"
+                                    placeholder="Type 1"
+                                    value={bottle.name}
+                                    onChange={(e) => updateBottle(bottle.id, 'name', e.target.value)}
+                                    disabled={isProcessing}
+                                />
+                            </div>
+                            <div className="flex-1">
+                                <Label htmlFor={`bottle-price-${bottle.id}`} className="text-xs text-ui-fg-subtle mb-1">
+                                    Price
+                                </Label>
+                                <Input
+                                    id={`bottle-price-${bottle.id}`}
+                                    type="number"
+                                    step="0.01"
+                                    placeholder="50.00"
+                                    value={bottle.price}
+                                    onChange={(e) => updateBottle(bottle.id, 'price', e.target.value)}
+                                    disabled={isProcessing}
+                                />
+                            </div>
+                            {bottles.length > 1 && (
+                                <button
+                                    type="button"
+                                    onClick={() => removeBottle(bottle.id)}
+                                    disabled={isProcessing}
+                                    className="mt-6 p-2 text-ui-fg-subtle hover:text-red-500 transition-colors"
+                                    title="Remove bottle"
+                                >
+                                    <Trash className="w-4 h-4" />
+                                </button>
+                            )}
+                        </div>
+                    ))}
                 </div>
 
                 <div className="pt-2">
@@ -153,17 +213,8 @@ const PerfumeVariantSetupWidget = ({ data }: { data: any }) => {
                     >
                         {isProcessing ? "Processing..." : "Auto-Setup Perfume Product"}
                     </Button>
-                    <p className="text-xs text-ui-fg-subtle mt-2">
-                        ✓ Creates/replaces options: Volume, Bottle
-                    </p>
-                    <p className="text-xs text-ui-fg-subtle">
-                        ✓ Creates 12 variants (concentration in metadata)
-                    </p>
-                    <p className="text-xs text-ui-fg-muted mt-1">
-                        ⚡ 5x faster - only 12 variants instead of 60!
-                    </p>
-                    <p className="text-xs text-red-500 mt-1">
-                        ⚠️ Deletes all existing options and variants
+                    <p className="text-xs text-red-500 mt-2">
+                        ⚠️ This will delete all existing options and variants
                     </p>
                 </div>
             </div>
