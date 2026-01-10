@@ -39,7 +39,7 @@ const Summary = ({ cart }: SummaryProps) => {
         href={"/checkout?step=" + step}
         className="btn-unified w-full inline-block px-4 py-2 text-grey-90 font-semibold text-base text-center relative z-10"
       >
-        <span className="relative z-10">Go to checkout</span>
+        <span className="relative z-10">Go to Checkout</span>
       </LocalizedClientLink>
     </div>
   )

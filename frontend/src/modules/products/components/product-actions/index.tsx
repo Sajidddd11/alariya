@@ -229,7 +229,7 @@ export default function ProductActions({
 
         {/* Price and stock Display */}
         <div className="flex gap-4 items-center">
-          <div className="py-1">
+          <div className="py-1 font-nunito">
             {selectedVariant ? (
               <ProductPrice product={product} variant={selectedVariant} />
             ) : (

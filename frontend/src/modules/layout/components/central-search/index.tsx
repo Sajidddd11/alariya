@@ -90,7 +90,7 @@ export default function CentralSearch({
       {/* Right Section: All Products Button */}
       {/* <LocalizedClientLink
         href="/store"
-        className="px-3 py-2 hidden small:inline-flex items-center gap-2 bg-black text-white rounded-lg hover:bg-gray-800 active:bg-gray-900 transition-colors text-xs small:text-sm font-medium border-2 border-black whitespace-nowrap flex-shrink-0"
+        className="px-3 py-2 hidden small:inline-flex items-center gap-2 bg-black text-white rounded-lg hover:bg-gray-800 active:bg-gray-900 transition-colors text-xs small:text-sm font-medium border border-black whitespace-nowrap flex-shrink-0"
         aria-label="VIEW ALL PRODUCTS"
       >
         <video

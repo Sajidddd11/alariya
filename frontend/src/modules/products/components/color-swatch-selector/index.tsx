@@ -63,7 +63,7 @@ const ColorSwatchSelector: React.FC<ColorSwatchSelectorProps> = ({
             >
               {/* Color Swatch */}
               <div
-                className={`w-6 h-6 rounded-full border-2 transition-all ${isSelected ? "border-slate-900 ring-2 ring-slate-400" : "border-slate-300"
+                className={`w-6 h-6 rounded-full border transition-all ${isSelected ? "border-slate-900 ring-2 ring-slate-400" : "border-slate-300"
                   }`}
                 style={{ backgroundColor: hexColor }}
               />

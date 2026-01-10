@@ -67,7 +67,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
 
               {/* Short Description */}
               <div className="bg-white border border-gray-200 p-4">
-                <h3 className="text-base font-semibold text-[#339994] mb-3">About This Fragrance</h3>
+                <h3 className="text-xl small:text-3xl font-semibold text-[#339994] mb-3 font-quentin">About This Fragrance</h3>
                 <ProductDescriptionSection product={product} />
               </div>
             </div>
@@ -81,7 +81,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
               </div>
 
               {/* Add to Cart Section - Priority Position */}
-              <div className="bg-[#EBF4F4]/30 p-4 border-2 border-[#339994]/20">
+              <div className="bg-[#EBF4F4]/30 p-4 border border-[#339994]/20">
                 <ProductOnboardingCta />
                 <Suspense
                   fallback={
@@ -97,7 +97,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
               </div>
 
               {/* Product Highlights - Compact Version */}
-              <div className="bg-white border border-gray-200 p-4 space-y-2">
+              <div className="bg-white border font-nunito border-gray-200 p-4 space-y-2">
                 <h3 className="text-sm font-semibold text-[#339994] mb-2">Product Highlights</h3>
 
                 <div className="space-y-2">
@@ -140,18 +140,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Detailed Description Section */}
-      <section className="bg-[#EBF4F4]/30 border-y border-[#339994]/20">
-        <div className="content-container py-12 small:py-16">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl small:text-3xl font-bold text-[#339994] font-quentin">Product Details</h2>
-            </div>
-            <ProductTabs product={product} />
           </div>
         </div>
       </section>

@@ -69,7 +69,7 @@ const Register = ({ setCurrentView }: Props) => {
         </div>
         <ErrorMessage error={message} data-testid="register-error" />
         <span className="text-center text-ui-fg-base text-small-regular my-6">
-          By creating an account, you agree to ZAHAN Store&apos;s{" "}
+          By creating an account, you agree to Al-Aria Perfume Gallery&apos;s{" "}
           <LocalizedClientLink
             href="/content/privacy-policy"
             className="underline"

@@ -81,7 +81,7 @@ export default function AboutPage() {
 
                 <img className="w-full h-full border border-[#339994]/10" src="/img_2-6-545x654.jpg" alt="" />
 
-                <div className="absolute small:-left-5 small:-top-5 h-full w-full bg-none border-2 border-[#339994]/50 "></div>
+                <div className="absolute small:-left-5 small:-top-5 h-full w-full bg-none border border-[#339994]/50 "></div>
               </div>
             </div>
           </div>

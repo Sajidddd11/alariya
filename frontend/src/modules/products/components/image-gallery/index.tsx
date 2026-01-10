@@ -66,7 +66,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
             <button
               key={image.id}
               onClick={() => setSelectedImageIndex(index)}
-              className={`relative flex-shrink-0 rounded-none overflow-hidden border-2 transition-all ${selectedImageIndex === index
+              className={`relative flex-shrink-0 rounded-none overflow-hidden border transition-all ${selectedImageIndex === index
                 ? "border-slate-900 shadow-lg"
                 : "border-slate-200 hover:border-slate-400"
                 }`}
@@ -117,26 +117,6 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
           }
           quality={90}
         />
-
-        {/* Zoom Indicator - Desktop Only */}
-        {isZooming && (
-          <div className="hidden small:flex absolute top-4 right-4 bg-black/60 backdrop-blur text-white px-3 py-2 rounded-lg text-sm font-medium gap-1">
-            <span>🔍</span>
-            <span>Zoom</span>
-          </div>
-        )}
-
-        {/* Image Counter - Mobile */}
-        <div className="small:hidden absolute bottom-1 right-1 bg-none border border-slate-900 text-slate-900 px-3 py-1 rounded-none text-xs font-bold">
-          {selectedImageIndex + 1}/{images.length}
-        </div>
-
-        {/* Badge */}
-        {images.length > 1 && (
-          <div className="absolute top-1 left-1 small:hidden bg-none border border-slate-900 text-slate-900 px-3 py-1 rounded-none text-xs font-medium">
-            Swipe to explore
-          </div>
-        )}
       </div>
 
     </div>

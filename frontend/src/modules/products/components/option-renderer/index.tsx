@@ -33,7 +33,7 @@ const OptionRenderer: React.FC<OptionRendererProps> = ({
                         <button
                             key={val.id}
                             onClick={() => onValueChange(option.id, val.value)}
-                            className={`px-4 py-2 text-sm font-medium transition-colors ${selectedValue === val.value
+                            className={`px-4 py-2 text-sm font-medium font-nunito transition-colors ${selectedValue === val.value
                                 ? "bg-[#339994] text-white"
                                 : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-300"
                                 }`}
@@ -53,7 +53,7 @@ const OptionRenderer: React.FC<OptionRendererProps> = ({
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                     {option.title}
                 </label>
-                <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${option.values.length}, 1fr)` }}>
+                <div className="grid grid-cols-2 small:grid-cols-3 gap-2">
                     {option.values.map((val, index) => {
                         // Try to map bottle type to image
                         // Type 1 -> bottle1.jpg, Type 2 -> bottle2.jpg, etc.
@@ -99,7 +99,7 @@ const OptionRenderer: React.FC<OptionRendererProps> = ({
                                         }}
                                     />
                                 </div>
-                                <p className="text-xs text-center mt-1 font-medium truncate">{val.value}</p>
+                                <p className="text-xs text-center mt-1 font-medium font-nunito truncate">{val.value}</p>
                                 {selectedValue === val.value && (
                                     <div className="absolute top-1 right-1 w-4 h-4 bg-[#339994] rounded-full flex items-center justify-center">
                                         <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">

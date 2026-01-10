@@ -128,7 +128,7 @@ const Item = ({ item, type = "full", currencyCode, renderMode = "desktop" }: Ite
 
         <Table.Cell className="text-left">
           <Text
-            className="txt-medium-plus text-ui-fg-base"
+            className=" text-xs font-semibold text-ui-fg-base"
             data-testid="product-title"
           >
             {item.product_title}

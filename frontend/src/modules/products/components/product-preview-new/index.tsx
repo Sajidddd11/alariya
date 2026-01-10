@@ -266,7 +266,7 @@ export default function ProductPreviewNew({
   return (
     <div
       ref={cardRef}
-      className={`group relative grid grid-cols-5 gap-5 items-center w-full bg-white transition-all duration-700 cursor-pointer animate-fade-in-up ${isNavigating ? 'opacity-75' : ''
+      className={`group relative grid grid-cols-5 gap-5 mt-8 items-start small:items-center w-full bg-white transition-all duration-700 cursor-pointer animate-fade-in-up ${isNavigating ? 'opacity-75' : ''
         }`}
       onClick={handleCardClick}
       data-clickable="true"
@@ -331,11 +331,11 @@ export default function ProductPreviewNew({
         )}
 
         {/* Title */}
-        <h3 className="text-xl font-normal text-[#232323] hover:text-[#339994] line-clamp-2">
+        <h3 className="text-xl font-normal w-full text-[#232323] hover:text-[#339994] line-clamp-2">
           {product.title}
         </h3>
         {/* Current Price (highlighted) */}
-        <div className="h-fit w-full">{/* Base Price Badge - bottom right, show only when there is a discount */}
+        <div className="h-fit w-full font-nunito">{/* Base Price Badge - bottom right, show only when there is a discount */}
           {hasDiscount ? (
             <div className="h-full w-full flex gap-1">
               <span className="text-sm text-[#969696] line-through">
@@ -355,7 +355,7 @@ export default function ProductPreviewNew({
         {/* Variant Options - Only show on mobile, hidden on desktop (shown in drawer instead) */}
         {hasVariants && (
           <div
-            className="medium:hidden pt-1 space-y-1 border-slate-200 mb-2"
+            className="medium:hidden pt-1 w-full space-y-1 mb-2"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Color Swatches */}
@@ -375,7 +375,7 @@ export default function ProductPreviewNew({
                 return null
               }
               return (
-                <div key={option.id}>
+                <div key={option.id} className="w-full">
                   <OptionSelect
                     option={option}
                     current={options[option.id]}

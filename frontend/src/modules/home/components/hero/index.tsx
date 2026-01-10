@@ -118,7 +118,7 @@ const Hero = () => {
             </LocalizedClientLink>
             <LocalizedClientLink
               href="/store"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-lg border-2 border-white hover:bg-white/30 transition-all duration-300 text-base small:text-lg whitespace-nowrap"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-sm text-white font-bold rounded-lg border border-white hover:bg-white/30 transition-all duration-300 text-base small:text-lg whitespace-nowrap"
             >
               View Offers
             </LocalizedClientLink>

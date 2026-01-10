@@ -331,14 +331,14 @@ export default function ProductPreview({
         )}
 
         {/* Title */}
-        <h3 className="text-xl text-center font-normal text-[#232323] hover:text-[#339994] py-3 line-clamp-2">
+        <h3 className=" text-lg small:text-xl text-center font-normal text-[#232323] hover:text-[#339994] py-1 small:py-3 line-clamp-2">
           {product.title}
         </h3>
 
         {/* Variant Options - Only show on mobile, hidden on desktop (shown in drawer instead) */}
         {hasVariants && (
           <div
-            className="medium:hidden pt-1 space-y-1 border-slate-200 mb-2"
+            className="medium:hidden pt-1 space-y-1 border-slate-200 mb-2 px-1 small:px-2"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Color Swatches */}
@@ -374,11 +374,11 @@ export default function ProductPreview({
 
         {/* ADD TO CART Button */}
         <div className="flex flex-col-reverse small:grid small:grid-cols-2 items-center">
-          <div className="h-full">
+          <div className="h-full w-full">
             <button
               onClick={handleButtonClick}
               disabled={isDesktop && hasVariants ? false : (!canAddToCart || isAdding)}
-              className={`w-full h-full text-sm  text-black font-semibold btn-unified mt-auto ${(isDesktop && hasVariants) || (canAddToCart && !isAdding)
+              className={`w-full h-full py-2 text-sm  text-black font-semibold btn-unified mt-auto ${(isDesktop && hasVariants) || (canAddToCart && !isAdding)
                 ? ""
                 : " cursor-not-allowed"
                 }`}
@@ -397,7 +397,7 @@ export default function ProductPreview({
           </div>
 
           {/* Current Price (highlighted) */}
-          <div className="h-fit w-full small:border small:border-black small:border-l-0  items-center">{/* Base Price Badge - bottom right, show only when there is a discount */}
+          <div className="h-fit w-full font-nunito small:border small:border-black small:border-l-0  items-center">{/* Base Price Badge - bottom right, show only when there is a discount */}
             {hasDiscount ? (
               <div className="h-full flex flex-col  py-2">
                 <span className="text-sm text-[#969696] mx-auto line-through">

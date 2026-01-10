@@ -79,13 +79,13 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
               <span className="text-sm text-slate-600 font-quentin">Starting from</span>
 
               {/* Main price (current price) - Blue color */}
-              <span className="text-2xl small:text-3xl font-bold text-[#339994]">
+              <span className="text-2xl small:text-3xl font-nunito font-bold text-[#339994]">
                 {cheapestPrice.calculated_price}
               </span>
 
               {/* Discount/base price - faded black */}
               {hasDiscount && (
-                <span className="text-sm small:text-base text-slate-400 line-through">
+                <span className="text-sm small:text-base font-nunito text-slate-400 line-through">
                   {cheapestPrice.original_price}
                 </span>
               )}

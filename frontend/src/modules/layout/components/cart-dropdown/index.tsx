@@ -158,7 +158,7 @@ const CartDropdown = ({
                     })
                     .map((item) => (
                       <div
-                        className="grid grid-cols-[80px_1fr] gap-x-2"
+                        className="grid grid-cols-[80px_1fr] gap-x-2 items-start"
                         key={item.id}
                         data-testid="cart-item"
                       >
@@ -175,7 +175,7 @@ const CartDropdown = ({
                         <div className="flex flex-col justify-between flex-1 min-w-0">
                           <div className="flex flex-col flex-1 min-w-0">
                             <div className="flex flex-col gap-y-1">
-                              <h3 className="text-xs font-medium overflow-hidden text-ellipsis line-clamp-2">
+                              <h3 className="font-medium overflow-hidden text-ellipsis line-clamp-2">
                                 <LocalizedClientLink
                                   href={`/products/${item.product_handle}`}
                                   data-testid="product-link"
@@ -183,7 +183,7 @@ const CartDropdown = ({
                                   {item.title}
                                 </LocalizedClientLink>
                               </h3>
-                              <div className="text-xs text-ui-fg-muted">
+                              <div className="text-xs text-ui-fg-muted font-nunito">
                                 <LineItemOptions
                                   variant={item.variant}
                                   data-testid="cart-item-variant"
@@ -191,7 +191,7 @@ const CartDropdown = ({
                                 />
                               </div>
                               <span
-                                className="text-xs text-ui-fg-muted"
+                                className="text-xs text-ui-fg-muted font-nunito"
                                 data-testid="cart-item-quantity"
                                 data-value={item.quantity}
                               >
@@ -199,7 +199,7 @@ const CartDropdown = ({
                               </span>
                             </div>
                           </div>
-                          <div className="flex items-center justify-between gap-x-2 pt-1">
+                          <div className="flex items-center font-nunito justify-between gap-x-2 pt-1">
                             <LineItemPrice
                               item={item}
                               style="tight"
@@ -223,7 +223,7 @@ const CartDropdown = ({
                       <span className="font-normal">(excl. taxes)</span>
                     </span>
                     <span
-                      className="text-large-semi"
+                      className="text-large-semi font-nunito"
                       data-testid="cart-subtotal"
                       data-value={subtotal}
                     >

@@ -33,9 +33,9 @@ export default function UnifiedButton({
   }
 
   const variantClasses = {
-    primary: "bg-white text-black border-2 border-black",
-    secondary: "bg-white text-black border-2 border-black",
-    outline: "bg-transparent text-black border-2 border-black",
+    primary: "bg-white text-black border border-black",
+    secondary: "bg-white text-black border border-black",
+    outline: "bg-transparent text-black border border-black",
   }
 
   return (
@@ -71,7 +71,7 @@ export default function UnifiedButton({
       {/* Content */}
       <span className="relative z-10 flex items-center justify-center gap-2">
         {isLoading && (
-          <div className="inline-block w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+          <div className="inline-block w-4 h-4 border border-current border-t-transparent rounded-full animate-spin" />
         )}
         {children}
       </span>

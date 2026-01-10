@@ -26,7 +26,7 @@ export default function SearchBar() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search for products..."
-          className="w-full px-5 py-3 small:py-4 pr-12 bg-white rounded-lg border-2 border-slate-200 focus:outline-none focus:border-slate-400 transition-colors duration-300 text-slate-900 placeholder-slate-500"
+          className="w-full px-5 py-3 small:py-4 pr-12 bg-white rounded-lg border border-slate-200 focus:outline-none focus:border-slate-400 transition-colors duration-300 text-slate-900 placeholder-slate-500"
           aria-label="Search products"
         />
         <button
