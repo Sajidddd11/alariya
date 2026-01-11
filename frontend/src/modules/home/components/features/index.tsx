@@ -43,7 +43,7 @@ export default function Features() {
                 }`}
             >
               <h2 className="text-3xl small:text-4xl font-light font-quentin text-[#339994] leading-tight">
-                About Cosmecos
+                About Al-Aria
               </h2>
             </div>
             {/* Sub Title */}

@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 
-export default function AboutCosmecos() {
+export default function AboutAlAria() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [isInView, setIsInView] = useState(false)
 
@@ -43,7 +43,7 @@ export default function AboutCosmecos() {
                 }`}
             >
               <h2 className="text-2xl xsmall:text-3xl small:text-4xl font-quentin font-light text-[#339994] leading-tight">
-                About Cosmecos
+                About Al-Aria
               </h2>
             </div>
             {/* Sub Title */}

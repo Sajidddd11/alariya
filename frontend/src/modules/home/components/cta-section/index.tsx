@@ -1,7 +1,6 @@
 "use client"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { Users, Sparkles, Gift, Flower2, Facebook } from "lucide-react"
 
 export default function CTASection() {
   return (

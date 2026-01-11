@@ -3,7 +3,6 @@
 import { getProductPrice } from "@lib/util/get-product-price"
 import { addToCart, clearCart } from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"
 import OptionSelect from "../product-actions/option-select"
 import ColorSwatchSelector from "../color-swatch-selector"
